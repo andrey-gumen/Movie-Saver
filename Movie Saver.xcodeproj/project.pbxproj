@@ -20,6 +20,7 @@
 		A191034B292AB0C100F57012 /* MainListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191033E292AB0C100F57012 /* MainListViewModel.swift */; };
 		A1910350292AB1C600F57012 /* GalleryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191034F292AB1C600F57012 /* GalleryCoordinator.swift */; };
 		A1910353292AB9F600F57012 /* EasyAutolayout in Frameworks */ = {isa = PBXBuildFile; productRef = A1910352292AB9F600F57012 /* EasyAutolayout */; };
+		A1910355292ABE4600F57012 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1910354292ABE4600F57012 /* ColorScheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		A191033D292AB0C100F57012 /* MainListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
 		A191033E292AB0C100F57012 /* MainListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainListViewModel.swift; sourceTree = "<group>"; };
 		A191034F292AB1C600F57012 /* GalleryCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCoordinator.swift; sourceTree = "<group>"; };
+		A1910354292ABE4600F57012 /* ColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		A1910310292AAA5000F57012 /* Movie Saver */ = {
 			isa = PBXGroup;
 			children = (
+				A1910354292ABE4600F57012 /* ColorScheme.swift */,
 				A1910331292AAFDB00F57012 /* GalleryFlow */,
 				A1910311292AAA5000F57012 /* AppDelegate.swift */,
 				A1910313292AAA5000F57012 /* SceneDelegate.swift */,
@@ -201,6 +204,7 @@
 				A191034A292AB0C100F57012 /* MainListView.swift in Sources */,
 				A1910347292AB0C100F57012 /* AddNewView.swift in Sources */,
 				A1910350292AB1C600F57012 /* GalleryCoordinator.swift in Sources */,
+				A1910355292ABE4600F57012 /* ColorScheme.swift in Sources */,
 				A1910342292AB0C100F57012 /* DetailsViewModel.swift in Sources */,
 				A1910348292AB0C100F57012 /* AddNewViewModel.swift in Sources */,
 				A1910312292AAA5000F57012 /* AppDelegate.swift in Sources */,
