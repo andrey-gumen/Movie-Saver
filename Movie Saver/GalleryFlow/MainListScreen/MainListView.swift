@@ -7,5 +7,6 @@ final class MainListView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .red
     }
 }
