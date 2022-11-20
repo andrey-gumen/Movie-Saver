@@ -6,7 +6,7 @@ final class GalleryCoordinator {
     let rootNavigationController: UINavigationController
     private var cancellables: Set<AnyCancellable> = []
     
-    init(rootNavigationController: UINavigationController) {
+    init(_ rootNavigationController: UINavigationController) {
         self.rootNavigationController = rootNavigationController
     }
     
