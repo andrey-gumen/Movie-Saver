@@ -19,6 +19,7 @@
 		A191034A292AB0C100F57012 /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191033D292AB0C100F57012 /* MainListView.swift */; };
 		A191034B292AB0C100F57012 /* MainListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191033E292AB0C100F57012 /* MainListViewModel.swift */; };
 		A1910350292AB1C600F57012 /* GalleryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191034F292AB1C600F57012 /* GalleryCoordinator.swift */; };
+		A1910353292AB9F600F57012 /* EasyAutolayout in Frameworks */ = {isa = PBXBuildFile; productRef = A1910352292AB9F600F57012 /* EasyAutolayout */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1910353292AB9F600F57012 /* EasyAutolayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +135,9 @@
 			dependencies = (
 			);
 			name = "Movie Saver";
+			packageProductDependencies = (
+				A1910352292AB9F600F57012 /* EasyAutolayout */,
+			);
 			productName = "Movie Saver";
 			productReference = A191030E292AAA5000F57012 /* Movie Saver.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +166,9 @@
 				Base,
 			);
 			mainGroup = A1910305292AAA4F00F57012;
+			packageReferences = (
+				A1910351292AB9F600F57012 /* XCRemoteSwiftPackageReference "EasyAutoLayout" */,
+			);
 			productRefGroup = A191030F292AAA5000F57012 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -404,6 +412,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A1910351292AB9F600F57012 /* XCRemoteSwiftPackageReference "EasyAutoLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ligr/EasyAutoLayout";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A1910352292AB9F600F57012 /* EasyAutolayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1910351292AB9F600F57012 /* XCRemoteSwiftPackageReference "EasyAutoLayout" */;
+			productName = EasyAutolayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A191031A292AAA5000F57012 /* Movie_Saver.xcdatamodeld */ = {
