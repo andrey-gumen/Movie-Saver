@@ -46,8 +46,13 @@ final class MainListView: UIViewController {
         view.backgroundColor = ColorScheme.tableViewBackground
 
         titleLabel.text = "My Moview List"
+        titleLabel.font = UIFont(name: "SFProDisplay-Bold", size: 34)
         
         movieTableView.backgroundColor = ColorScheme.tableViewBackground
+        movieTableView.allowsSelection = false
+        movieTableView.separatorStyle = .none
+        movieTableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.reuseIdentifier)
+        
         movieTableView.delegate = self
         movieTableView.dataSource = self
     }
@@ -63,7 +68,7 @@ final class MainListView: UIViewController {
             .below(of: titleLabel, offset: 30)
             .leading(to: view)
             .trailing(to: view)
-            .bottom(to: view.safeAreaLayoutGuide)
+            .bottom(to: view)
     }
 
     private func configureToolbar() {
@@ -91,8 +96,16 @@ extension MainListView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = ColorScheme.cellBackground
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: MovieCell.reuseIdentifier,
+            for: indexPath
+        ) as! MovieCell
+        cell.updateView(title: "Test", raiting: "10", preview: nil)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return MovieCell.cellHeight
+    }
+    
 }
