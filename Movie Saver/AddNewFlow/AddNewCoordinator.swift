@@ -21,7 +21,11 @@ final class AddNewCoordinator {
         
         viewModel.viewDidDisapearSubject
             .sink { [weak self] in
-                self?.flowFinalizer?()
+                // если в стеке нету главного экрана флоу то финализирует его
+                let addNewViewController = self?.rootNavigationController.viewControllers.first(where: { $0 == view })
+                if addNewViewController == nil {
+                    self?.flowFinalizer?()
+                }
             }
             .store(in: &cancellables)
     }
