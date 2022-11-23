@@ -9,8 +9,6 @@ final class MainListView: UIViewController {
 
     // MARK: Public
     // MARK: Private
-    private var cancellables: Set<AnyCancellable> = []
-
     private let titleLabel = UILabel()
     private let movieTableView = UITableView()
 
@@ -84,7 +82,7 @@ final class MainListView: UIViewController {
 
     // MARK: - Helpers
     @objc private func addButtonDidTapped() {
-        print(#function)
+        viewModel.showAddNewFlowSubject.send()
     }
 }
 
