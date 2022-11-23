@@ -114,8 +114,8 @@
 		A1910310292AAA5000F57012 /* Movie Saver */ = {
 			isa = PBXGroup;
 			children = (
-				A18800E2292EBDFE00469616 /* AddNewFlow */,
 				A1910356292AE91500F57012 /* Fonts */,
+				A18800E2292EBDFE00469616 /* AddNewFlow */,
 				A1910331292AAFDB00F57012 /* GalleryFlow */,
 				A1910354292ABE4600F57012 /* ColorScheme.swift */,
 				A1910311292AAA5000F57012 /* AppDelegate.swift */,
