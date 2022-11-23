@@ -6,11 +6,12 @@ final class MovieCell: UITableViewCell {
     // MARK: - Properties
     // MARK: Public
     static let reuseIdentifier = "MoviewCell"
-    static let cellHeight: CGFloat = 212 + 20
+    static let padding: CGFloat = 8
+    static let cellHeight: CGFloat = 212 + padding + padding // padding + height + padding
     static let defaultPreview = UIImage(systemName: "photo")
 
     // MARK: Private
-    private let boxView = UIView()
+    private let paddingView = UIView()
     private let previewImageView = UIImageView()
     private let textGroupView = UIView()
     private let titleLabel = UILabel()
@@ -35,13 +36,13 @@ final class MovieCell: UITableViewCell {
 
     // MARK: - Setups
     private func addSubview() {
-        boxView.addSubview(previewImageView)
-        boxView.addSubview(textGroupView)
+        paddingView.addSubview(previewImageView)
+        paddingView.addSubview(textGroupView)
 
         textGroupView.addSubview(titleLabel)
         textGroupView.addSubview(ratingLabel)
 
-        contentView.addSubview(boxView)
+        contentView.addSubview(paddingView)
     }
 
     private func configureUI() {
@@ -49,9 +50,9 @@ final class MovieCell: UITableViewCell {
 
         contentView.backgroundColor = ColorScheme.tableViewBackground
 
-        boxView.backgroundColor = ColorScheme.cellBackground
-        boxView.layer.cornerRadius = 8
-        boxView.dropShadow()
+        paddingView.backgroundColor = ColorScheme.cellBackground
+        paddingView.layer.cornerRadius = 8
+        paddingView.dropShadow()
 
         previewImageView.contentMode = .scaleAspectFit
         previewImageView.image = MovieCell.defaultPreview
@@ -68,19 +69,28 @@ final class MovieCell: UITableViewCell {
     }
 
     private func configureConstraints() {
-        boxView.pin
-            .edges([.top, .left, .right, .bottom], to: contentView, insets: .init(top: 8, left: 16, bottom: 8, right: 16))
+        paddingView.pin
+            .edges(
+                [.top, .left, .right, .bottom],
+                to: contentView,
+                insets: .init(
+                    top: MovieCell.padding,
+                    left: 16,
+                    bottom: MovieCell.padding,
+                    right: 16
+                )
+            )
 
         textGroupView.pin
-            .top(to: boxView)
-            .trailing(to: boxView)
-            .bottom(to: boxView)
+            .top(to: paddingView)
+            .trailing(to: paddingView)
+            .bottom(to: paddingView)
             .width(to: 138)
 
         previewImageView.pin
-            .top(to: boxView)
-            .bottom(to: boxView)
-            .leading(to: boxView)
+            .top(to: paddingView)
+            .bottom(to: paddingView)
+            .leading(to: paddingView)
             .before(of: textGroupView)
 
         titleLabel.pin
