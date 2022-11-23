@@ -3,7 +3,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var mainCoordinator: AnyObject?
+    var rootCoordinator: AnyObject?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
@@ -13,10 +13,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = rootNavigationController
         window?.makeKeyAndVisible()
         
-        let galleryCoordinator = GalleryCoordinator(rootNavigationController)
-        galleryCoordinator.start()
+        let rootCoordinator = SceneCoordinator(rootNavigationController)
+        rootCoordinator.start()
         
-        mainCoordinator = galleryCoordinator
+        self.rootCoordinator = rootCoordinator
     }
     
 }
