@@ -30,6 +30,8 @@
 		A1910366292AE93200F57012 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A191035E292AE93200F57012 /* Manrope-Bold.ttf */; };
 		A1910367292AE93200F57012 /* Manrope-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A191035F292AE93200F57012 /* Manrope-VariableFont_wght.ttf */; };
 		A191036B292AEC4A00F57012 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A191036A292AEBEC00F57012 /* SFProDisplay-Bold.ttf */; };
+		A191036E292AEDC200F57012 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191036D292AEDC200F57012 /* MovieCell.swift */; };
+		A19103BB292C46EE00F57012 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19103BA292C46EE00F57012 /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		A191035E292AE93200F57012 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		A191035F292AE93200F57012 /* Manrope-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		A191036A292AEBEC00F57012 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		A191036D292AEDC200F57012 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		A19103BA292C46EE00F57012 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 				A191031F292AAA5000F57012 /* LaunchScreen.storyboard */,
 				A1910322292AAA5000F57012 /* Info.plist */,
 				A191031A292AAA5000F57012 /* Movie_Saver.xcdatamodeld */,
+				A19103BA292C46EE00F57012 /* View+Extension.swift */,
 			);
 			path = "Movie Saver";
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			children = (
 				A191033D292AB0C100F57012 /* MainListView.swift */,
 				A191033E292AB0C100F57012 /* MainListViewModel.swift */,
+				A191036D292AEDC200F57012 /* MovieCell.swift */,
 			);
 			path = MainListScreen;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 			files = (
 				A1910343292AB0C100F57012 /* DetailsView.swift in Sources */,
 				A191031C292AAA5000F57012 /* Movie_Saver.xcdatamodeld in Sources */,
+				A191036E292AEDC200F57012 /* MovieCell.swift in Sources */,
 				A191034B292AB0C100F57012 /* MainListViewModel.swift in Sources */,
 				A191034A292AB0C100F57012 /* MainListView.swift in Sources */,
 				A1910347292AB0C100F57012 /* AddNewView.swift in Sources */,
@@ -275,6 +282,7 @@
 				A1910355292ABE4600F57012 /* ColorScheme.swift in Sources */,
 				A1910342292AB0C100F57012 /* DetailsViewModel.swift in Sources */,
 				A1910348292AB0C100F57012 /* AddNewViewModel.swift in Sources */,
+				A19103BB292C46EE00F57012 /* View+Extension.swift in Sources */,
 				A1910312292AAA5000F57012 /* AppDelegate.swift in Sources */,
 				A1910314292AAA5000F57012 /* SceneDelegate.swift in Sources */,
 			);
