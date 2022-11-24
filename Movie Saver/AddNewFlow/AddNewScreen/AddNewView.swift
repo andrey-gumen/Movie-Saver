@@ -29,6 +29,7 @@ final class AddNewView: UIViewController {
         addSubview()
         configureUI()
         configureConstraints()
+        configureActions()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -129,6 +130,32 @@ final class AddNewView: UIViewController {
             .below(of: descriptionTitleLabel, offset: 11)
             .centerX(in: view)
             .size(to: CGSize(width: 311, height: 145))
+    }
+    
+    private func configureActions() {
+        nameView.changeSubject
+            .sink { [weak self] in
+                self?.viewModel.changeNameSubject.send()
+            }
+            .store(in: &cancellables)
+        
+        releaseDateView.changeSubject
+            .sink { [weak self] in
+                self?.viewModel.changeReleaseDateSubject.send()
+            }
+            .store(in: &cancellables)
+        
+        yourRatingView.changeSubject
+            .sink { [weak self] in
+                self?.viewModel.changeRatingSubject.send()
+            }
+            .store(in: &cancellables)
+        
+        youtubeLinkView.changeSubject
+            .sink { [weak self] in
+                self?.viewModel.changeYoutubeLinkSubject.send()
+            }
+            .store(in: &cancellables)
     }
 
     private func configureToolbar() {
