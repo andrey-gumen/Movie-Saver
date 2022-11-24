@@ -11,7 +11,7 @@ final class ChangeStringValueView: UIViewController {
     private var titleCache = ""
     
     private let titleLabel = UILabel()
-    private let valueInputView = UITextField()
+    private let valueTextField = UITextField()
     private let saveButton = UIButton()
     
     //MARK: - Subjects
@@ -23,6 +23,7 @@ final class ChangeStringValueView: UIViewController {
             .replaceNil(with: false)
             .eraseToAnyPublisher()
     }
+    
 
     // MARK: - Lifecycle
     init(title: String) {
@@ -45,7 +46,7 @@ final class ChangeStringValueView: UIViewController {
     // MARK: - Setups
     private func addSubview() {
         view.addSubview(titleLabel)
-        view.addSubview(valueInputView)
+        view.addSubview(valueTextField)
         view.addSubview(saveButton)
     }
 
@@ -56,9 +57,10 @@ final class ChangeStringValueView: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "Manrope-Medium", size: 24)
         
-        valueInputView.placeholder = "Name"
-        valueInputView.textAlignment = .left
-        valueInputView.font = UIFont(name: "Manrope-Regular", size: 17)
+        valueTextField.placeholder = "Name"
+        valueTextField.textAlignment = .left
+        valueTextField.font = UIFont(name: "Manrope-Regular", size: 17)
+        valueTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
         
         saveButton.setTitle("Save", for: .normal)
         saveButton.setTitleColor(.systemBlue, for: .normal)
@@ -76,13 +78,13 @@ final class ChangeStringValueView: UIViewController {
             .trailing(to: view, offset: 16)
             .height(to: 26)
         
-        valueInputView.pin
+        valueTextField.pin
             .below(of: titleLabel, offset: 42)
             .centerX(in: view)
             .size(to: CGSize(width: 326, height: 44))
 
         saveButton.pin
-            .below(of: valueInputView, offset: 42)
+            .below(of: valueTextField, offset: 42)
             .centerX(in: view)
             .size(to: CGSize(width: 79, height: 27))
     }
@@ -92,12 +94,7 @@ final class ChangeStringValueView: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-}
-
-extension ChangeStringValueView: UITextFieldDelegate {
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    @objc func valueChanged(_ textField: UITextField) {
         viewModel.valueSubject.send(textField.text ?? "")
     }
-    
 }
