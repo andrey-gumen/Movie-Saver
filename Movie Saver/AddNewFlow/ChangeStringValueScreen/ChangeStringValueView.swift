@@ -16,10 +16,9 @@ final class ChangeStringValueView: UIViewController {
     
     //MARK: - Subjects
     private var cancellables: Set<AnyCancellable> = []
-    private let valueSubject = CurrentValueSubject<String, Never>("")
-    
+        
     private var isValueValidPublisher: AnyPublisher<Bool, Never>{
-        valueSubject
+        viewModel.valueSubject
             .map { !$0.isEmpty }
             .replaceNil(with: false)
             .eraseToAnyPublisher()
@@ -90,7 +89,7 @@ final class ChangeStringValueView: UIViewController {
 
     // MARK: - Helpers
     @objc private func saveButtonDidTapped() {
-        print(#function)
+        navigationController?.popViewController(animated: true)
     }
     
 }
@@ -98,7 +97,7 @@ final class ChangeStringValueView: UIViewController {
 extension ChangeStringValueView: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        valueSubject.send(textField.text ?? "")
+        viewModel.valueSubject.send(textField.text ?? "")
     }
     
 }
