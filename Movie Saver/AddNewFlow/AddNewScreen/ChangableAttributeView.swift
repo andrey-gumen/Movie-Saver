@@ -49,13 +49,9 @@ final class ChangableAttributeView<TYPE>: UIView {
     private func configureUI() {
         titleLabel.font = UIFont(name: "Manrope-Medium", size: 18)
         titleLabel.textAlignment = .center
-        titleLabel.text = "Title"
-        titleLabel.sizeToFit()
-
+        
         valueLabel.font = UIFont(name: "Manrope-Medium", size: 18)
         valueLabel.textAlignment = .center
-        valueLabel.text = "-"
-        valueLabel.sizeToFit()
 
         changeButton.setTitle("Change", for: .normal)
         let buttonTextColor = UIColor(red: 0.184, green: 0.502, blue: 0.929, alpha: 1)
@@ -84,11 +80,13 @@ final class ChangableAttributeView<TYPE>: UIView {
     private func configureSubjects() {
         titleSubject.sink { [weak self] title in
             self?.titleLabel.text = title
+            self?.titleLabel.sizeToFit()
         }
         .store(in: &cancellables)
         
         valueSubject.sink { [weak self] value in
-            self?.titleLabel.text = value != nil ? "\(value!)" : "-"
+            self?.valueLabel.text = value != nil ? "\(value!)" : "-"
+            self?.valueLabel.sizeToFit()
         }
         .store(in: &cancellables)
     }
