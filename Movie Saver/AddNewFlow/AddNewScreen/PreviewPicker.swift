@@ -1,4 +1,3 @@
-import Combine
 import EasyAutolayout
 import UIKit
 import Foundation
@@ -6,8 +5,13 @@ import Foundation
 final class PreviewPicker: UIView {
 
     // MARK: - Properties
+    var preview: UIImage? {
+        return mainImage.image != PreviewPicker.defaultPreview
+        ? mainImage.image
+        : nil
+    }
+    
     // MARK: Public
-    let previewChangedSubject = PassthroughSubject<UIImage?, Never>()
     var viewCntroller: UIViewController!
 
     // MARK: Private
