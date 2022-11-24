@@ -8,12 +8,11 @@ final class AddNewView: UIViewController {
 
     // MARK: Public
     // MARK: Private
-    private static let defaultPreview = UIImage(systemName: "photo")
     private var cancellables: Set<AnyCancellable> = []
 
     private let titleLabel = UILabel()
     
-    private let previewButton = UIButton()
+    private let previewPicker = PreviewPicker()
 
     private let changablesContainer = UIView()
     private let nameView = ChangableAttributeView()
@@ -50,7 +49,7 @@ final class AddNewView: UIViewController {
     private func addSubview() {
         view.addSubview(titleLabel)
         
-        view.addSubview(previewButton)
+        view.addSubview(previewPicker)
 
         view.addSubview(changablesContainer)
         changablesContainer.addSubview(nameView)
@@ -68,14 +67,7 @@ final class AddNewView: UIViewController {
         titleLabel.text = "Add new"
         titleLabel.font = UIFont(name: "SFProDisplay-Bold", size: 34)
         
-        previewButton.backgroundColor = UIColor(red: 0.868, green: 0.868, blue: 0.868, alpha: 1)
-        
-
-        previewButton.contentHorizontalAlignment = .fill
-        previewButton.contentVerticalAlignment = .fill
-        previewButton.layer.cornerRadius = 75
-        previewButton.clipsToBounds = true
-        previewButton.setImage(AddNewView.defaultPreview, for: .normal)
+        previewPicker.viewCntroller = self
         
         nameView.updateTille(title: "Name")
         releaseDateView.updateTille(title: "Release Date")
@@ -98,13 +90,13 @@ final class AddNewView: UIViewController {
             .trailing(to: view, offset: 16)
             .height(to: 41)
         
-        previewButton.pin
+        previewPicker.pin
             .below(of: titleLabel, offset: 35)
             .centerX(in: view)
             .size(to: CGSize(width: 150, height: 150))
 
         changablesContainer.pin
-            .below(of: previewButton, offset: 32)
+            .below(of: previewPicker, offset: 32)
             .centerX(in: view)
             .size(to: CGSize(width: 125 + 45 + 125, height: 82 + 32 + 82))
 
