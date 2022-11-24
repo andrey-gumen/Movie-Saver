@@ -92,7 +92,7 @@
 			children = (
 				A18800E6292EBDFE00469616 /* AddNewCoordinator.swift */,
 				A18800E3292EBDFE00469616 /* AddNewScreen */,
-				A18800F3292FAF1500469616 /* ChangeNameScreen */,
+				A18800F3292FAF1500469616 /* ChangeStringValueScreen */,
 			);
 			path = AddNewFlow;
 			sourceTree = "<group>";
@@ -108,13 +108,13 @@
 			path = AddNewScreen;
 			sourceTree = "<group>";
 		};
-		A18800F3292FAF1500469616 /* ChangeNameScreen */ = {
+		A18800F3292FAF1500469616 /* ChangeStringValueScreen */ = {
 			isa = PBXGroup;
 			children = (
 				A18800F4292FAF1500469616 /* ChangeStringValueView.swift */,
 				A18800F5292FAF1500469616 /* ChangeStringValueViewModel.swift */,
 			);
-			path = ChangeNameScreen;
+			path = ChangeStringValueScreen;
 			sourceTree = "<group>";
 		};
 		A1910305292AAA4F00F57012 = {
