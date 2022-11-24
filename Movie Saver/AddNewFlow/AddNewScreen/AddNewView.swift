@@ -29,7 +29,7 @@ final class AddNewView: UIViewController {
         addSubview()
         configureUI()
         configureConstraints()
-        configureActions()
+        configureSubjects()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -132,7 +132,8 @@ final class AddNewView: UIViewController {
             .size(to: CGSize(width: 311, height: 145))
     }
     
-    private func configureActions() {
+    private func configureSubjects() {
+        // outputs
         nameView.changeSubject
             .sink { [weak self] in
                 self?.viewModel.changeNameSubject.send()
@@ -154,6 +155,19 @@ final class AddNewView: UIViewController {
         youtubeLinkView.changeSubject
             .sink { [weak self] in
                 self?.viewModel.changeYoutubeLinkSubject.send()
+            }
+            .store(in: &cancellables)
+        
+        // inputs
+        viewModel.nameValueSubject
+            .sink { [weak self] value in
+                self?.nameView.updateValue(value)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.youtubeLinkValueSubject
+            .sink { [weak self] value in
+                self?.youtubeLinkView.updateValue(value)
             }
             .store(in: &cancellables)
     }

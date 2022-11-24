@@ -32,7 +32,7 @@ final class ChangableAttributeView: UIView {
         titleLabel.text = title
     }
     
-    func updateValue(value: String?) {
+    func updateValue(_ value: String?) {
         valueLabel.text = value ?? "-"
     }
 
