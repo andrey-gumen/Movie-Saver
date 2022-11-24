@@ -14,22 +14,25 @@ final class ChangableAttributeView: UIView {
     private let changeButton = UIButton()
 
     // MARK: - Lifecycle
-    init(title: String) {
-        let frame = CGRect(x: 0, y: 0, width: 125, height: 82)
+    override init(frame: CGRect) {
         super.init(frame: frame)
 
         addSubview()
-        configureUI(title: title)
+        configureUI()
         configureConstraints()
     }
-
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - API
-    func updateView(value: String?) {
+    func updateTille(title: String) {
+        titleLabel.text = title
+    }
+    
+    func updateValue(value: String?) {
         valueLabel.text = value ?? "-"
     }
 
@@ -40,10 +43,10 @@ final class ChangableAttributeView: UIView {
         addSubview(changeButton)
     }
 
-    private func configureUI(title: String) {
+    private func configureUI() {
         titleLabel.font = UIFont(name: "Manrope-Medium", size: 18)
         titleLabel.textAlignment = .center
-        titleLabel.text = title
+        titleLabel.text = "Title"
         titleLabel.sizeToFit()
 
         valueLabel.font = UIFont(name: "Manrope-Medium", size: 18)
@@ -65,12 +68,12 @@ final class ChangableAttributeView: UIView {
             .height(to: 27)
 
         valueLabel.pin
-            .top(to: titleLabel)
+            .below(of: titleLabel)
             .centerX(in: titleLabel)
             .height(to: 18)
 
         changeButton.pin
-            .top(to: titleLabel)
+            .below(of: valueLabel)
             .centerX(in: titleLabel)
             .height(to: 27)
     }
