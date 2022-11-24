@@ -26,7 +26,7 @@ final class ChangeStringValueView: UIViewController {
 
     // MARK: - Lifecycle
     init(title: String) {
-        super.init(nibName: "", bundle: nil)
+        super.init(nibName: nil, bundle: nil)
         titleCache = title
     }
     
@@ -57,7 +57,7 @@ final class ChangeStringValueView: UIViewController {
         titleLabel.font = UIFont(name: "Manrope-Medium", size: 24)
         
         valueInputView.placeholder = "Name"
-        valueInputView.textAlignment = .center
+        valueInputView.textAlignment = .left
         valueInputView.font = UIFont(name: "Manrope-Regular", size: 17)
         
         saveButton.setTitle("Save", for: .normal)
