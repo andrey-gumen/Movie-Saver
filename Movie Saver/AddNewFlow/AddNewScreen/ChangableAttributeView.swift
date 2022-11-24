@@ -2,24 +2,35 @@ import Combine
 import EasyAutolayout
 import UIKit
 
-final class ChangableAttributeView: UIView {
+final class ChangableAttributeView<TYPE>: UIView {
 
     // MARK: - Properties
     // MARK: Public
-    let changeSubject = PassthroughSubject<Void, Never>()
-
     // MARK: Private
     private let titleLabel = UILabel()
     private let valueLabel = UILabel()
     private let changeButton = UIButton()
+    
+    // MARK: - Subjects
+    let titleSubject = CurrentValueSubject<String, Never>("")
+    let valueSubject = CurrentValueSubject<TYPE?, Never>(nil)
+    let changeButtonSubject = PassthroughSubject<Void, Never>()
 
+    private var cancellables: Set<AnyCancellable> = []
+    
     // MARK: - Lifecycle
+    convenience init(title: String) {
+        self.init(frame: CGRect.zero)
+        titleSubject.value = title
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         addSubview()
         configureUI()
         configureConstraints()
+        configureSubjects()
     }
     
     @available(*, unavailable)
@@ -28,14 +39,6 @@ final class ChangableAttributeView: UIView {
     }
 
     // MARK: - API
-    func updateTille(title: String) {
-        titleLabel.text = title
-    }
-    
-    func updateValue(_ value: String?) {
-        valueLabel.text = value ?? "-"
-    }
-
     // MARK: - Setups
     private func addSubview() {
         addSubview(titleLabel)
@@ -77,9 +80,21 @@ final class ChangableAttributeView: UIView {
             .centerX(in: titleLabel)
             .height(to: 27)
     }
+    
+    private func configureSubjects() {
+        titleSubject.sink { [weak self] title in
+            self?.titleLabel.text = title
+        }
+        .store(in: &cancellables)
+        
+        valueSubject.sink { [weak self] value in
+            self?.titleLabel.text = value != nil ? "\(value!)" : "-"
+        }
+        .store(in: &cancellables)
+    }
 
     // MARK: - Helpers
     @objc func changeButtonDidTapped() {
-        changeSubject.send()
+        changeButtonSubject.send()
     }
 }
