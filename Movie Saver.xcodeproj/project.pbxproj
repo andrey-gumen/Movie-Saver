@@ -12,6 +12,7 @@
 		A18800E9292EBDFE00469616 /* AddNewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800E6292EBDFE00469616 /* AddNewCoordinator.swift */; };
 		A18800EB292EBF2200469616 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800EA292EBF2200469616 /* SceneCoordinator.swift */; };
 		A18800F0292EDF6300469616 /* ChangableAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800EF292EDF6300469616 /* ChangableAttributeView.swift */; };
+		A18800F2292F9DC900469616 /* PreviewPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800F1292F9DC900469616 /* PreviewPicker.swift */; };
 		A1910312292AAA5000F57012 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1910311292AAA5000F57012 /* AppDelegate.swift */; };
 		A1910314292AAA5000F57012 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1910313292AAA5000F57012 /* SceneDelegate.swift */; };
 		A191031C292AAA5000F57012 /* Movie_Saver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A191031A292AAA5000F57012 /* Movie_Saver.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 		A18800E6292EBDFE00469616 /* AddNewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewCoordinator.swift; sourceTree = "<group>"; };
 		A18800EA292EBF2200469616 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		A18800EF292EDF6300469616 /* ChangableAttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangableAttributeView.swift; sourceTree = "<group>"; };
+		A18800F1292F9DC900469616 /* PreviewPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPicker.swift; sourceTree = "<group>"; };
 		A191030E292AAA5000F57012 /* Movie Saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Saver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1910311292AAA5000F57012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1910313292AAA5000F57012 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				A18800E4292EBDFE00469616 /* AddNewView.swift */,
 				A18800E5292EBDFE00469616 /* AddNewViewModel.swift */,
 				A18800EF292EDF6300469616 /* ChangableAttributeView.swift */,
+				A18800F1292F9DC900469616 /* PreviewPicker.swift */,
 			);
 			path = AddNewScreen;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1910343292AB0C100F57012 /* DetailsView.swift in Sources */,
+				A18800F2292F9DC900469616 /* PreviewPicker.swift in Sources */,
 				A191031C292AAA5000F57012 /* Movie_Saver.xcdatamodeld in Sources */,
 				A191036E292AEDC200F57012 /* MovieCell.swift in Sources */,
 				A191034B292AB0C100F57012 /* MainListViewModel.swift in Sources */,
