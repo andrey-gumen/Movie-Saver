@@ -19,13 +19,9 @@ final class AddNewCoordinator {
         view.viewModel = viewModel
         rootNavigationController.pushViewController(view, animated: true)
         
-        viewModel.viewDidDisapearSubject
+        viewModel.movedFromParentSubject
             .sink { [weak self] in
-                // если в стеке нету главного экрана флоу то финализирует его
-                let addNewViewController = self?.rootNavigationController.viewControllers.first(where: { $0 == view })
-                if addNewViewController == nil {
-                    self?.flowFinalizer?()
-                }
+                self?.flowFinalizer?()
             }
             .store(in: &cancellables)
     }
