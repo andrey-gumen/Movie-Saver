@@ -43,30 +43,26 @@ final class AddNewCoordinator {
     }
     
     func showChangeNameScreen(name: String?) {
-        let viewModel = ChangeStringValueViewModel()
+        let viewModel = ChangeStringValueViewModel(name ?? "")
         let view = ChangeStringValueView(title: "Film name")
         view.viewModel = viewModel
         
         rootNavigationController.pushViewController(view, animated: true)
         
         viewModel.valueSubject
-            .sink { [weak self] value in
-                self?.nameTransferSubject.send(value)
-            }
+            .sink { [weak self] value in self?.nameTransferSubject.send(value) }
             .store(in: &cancellables)
     }
     
     func showChangeYoutubeScreen(youtubeLink: String?) {
-        let viewModel = ChangeStringValueViewModel()
+        let viewModel = ChangeStringValueViewModel(youtubeLink ?? "")
         let view = ChangeStringValueView(title: "Toutube Link")
         view.viewModel = viewModel
         
         rootNavigationController.pushViewController(view, animated: true)
         
         viewModel.valueSubject
-            .sink { [weak self] value in
-                self?.youtubeLinkTransferSubject.send(value)
-            }
+            .sink { [weak self] value in self?.youtubeLinkTransferSubject.send(value) }
             .store(in: &cancellables)
     }
     
