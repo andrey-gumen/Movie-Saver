@@ -14,7 +14,7 @@ final class ChangableAttributeView<TYPE>: UIView {
     // MARK: - Subjects
     let titleSubject = CurrentValueSubject<String, Never>("")
     let valueSubject = CurrentValueSubject<TYPE?, Never>(nil)
-    let changeButtonSubject = PassthroughSubject<Void, Never>()
+    let changeButtonSubject = PassthroughSubject<TYPE?, Never>()
 
     private var cancellables: Set<AnyCancellable> = []
     
@@ -93,6 +93,6 @@ final class ChangableAttributeView<TYPE>: UIView {
 
     // MARK: - Helpers
     @objc func changeButtonDidTapped() {
-        changeButtonSubject.send()
+        changeButtonSubject.send(valueSubject.value)
     }
 }
