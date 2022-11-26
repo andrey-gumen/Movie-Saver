@@ -17,43 +17,32 @@ final class AddNewCoordinator {
     func start(flowFinalizer: @escaping () -> Void) {
         self.flowFinalizer = flowFinalizer
         
-        let viewModel = AddNewViewModel()
-        let view = AddNewView()
-        view.viewModel = viewModel
-        rootNavigationController.pushViewController(view, animated: true)
+        let viewModel = AddNewMovieViewModel()
+        let view = AddNewMovieView()
+        view.inputs = viewModel.inputs
+        view.outputs = viewModel.outputs
         
-        viewModel.movedFromParentSubject
-            .sink { [weak self] in
-                self?.flowFinalizer?()
-            }
+        viewModel.outputs.movedFromParentSubject
+            .sink { [weak self] in self?.flowFinalizer?() }
             .store(in: &cancellables)
-        
-        viewModel.changeNameSubject
-            .sink { [weak self] in
-                self?.showChangeNameScreen()
-            }
+        viewModel.outputs.nameSubject
+            .sink { [weak self] value in self?.showChangeNameScreen(name: value) }
             .store(in: &cancellables)
-        
-        viewModel.changeYoutubeLinkSubject
-            .sink { [weak self] in
-                self?.showChangeYoutubeScreen()
-            }
+        viewModel.outputs.youtubeLinkSubject
+            .sink { [weak self] value in self?.showChangeYoutubeScreen(youtubeLink: value) }
             .store(in: &cancellables)
         
         nameTransferSubject
-            .sink { value in
-                viewModel.nameValueSubject.send(value)
-            }
+            .sink { value in viewModel.inputs.nameSubject.send(value) }
+            .store(in: &cancellables)
+        youtubeLinkTransferSubject
+            .sink { value in viewModel.inputs.youtubeLinkSubject.send(value) }
             .store(in: &cancellables)
         
-        youtubeLinkTransferSubject
-            .sink { value in
-                viewModel.youtubeLinkValueSubject.send(value)
-            }
-            .store(in: &cancellables)
+        rootNavigationController.pushViewController(view, animated: true)
     }
     
-    func showChangeNameScreen() {
+    func showChangeNameScreen(name: String?) {
         let viewModel = ChangeStringValueViewModel()
         let view = ChangeStringValueView(title: "Film name")
         view.viewModel = viewModel
@@ -67,7 +56,7 @@ final class AddNewCoordinator {
             .store(in: &cancellables)
     }
     
-    func showChangeYoutubeScreen() {
+    func showChangeYoutubeScreen(youtubeLink: String?) {
         let viewModel = ChangeStringValueViewModel()
         let view = ChangeStringValueView(title: "Toutube Link")
         view.viewModel = viewModel

@@ -144,7 +144,7 @@ final class AddNewMovieView: UIViewController {
 
         // inputs
         inputs.nameSubject
-            .sink { [weak self] value in print(value ?? ""); self?.nameView.valueSubject.send(value) }
+            .sink { [weak self] value in self?.nameView.valueSubject.send(value) }
             .store(in: &cancellables)
         inputs.releaseDateSubject
             .sink { [weak self] value in self?.releaseDateView.valueSubject.send(value) }
