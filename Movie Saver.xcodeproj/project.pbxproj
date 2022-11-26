@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A18800E7292EBDFE00469616 /* AddNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800E4292EBDFE00469616 /* AddNewView.swift */; };
-		A18800E8292EBDFE00469616 /* AddNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800E5292EBDFE00469616 /* AddNewViewModel.swift */; };
+		A18800E8292EBDFE00469616 /* AddNewMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800E5292EBDFE00469616 /* AddNewMovieViewModel.swift */; };
 		A18800E9292EBDFE00469616 /* AddNewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800E6292EBDFE00469616 /* AddNewCoordinator.swift */; };
 		A18800EB292EBF2200469616 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800EA292EBF2200469616 /* SceneCoordinator.swift */; };
 		A18800F0292EDF6300469616 /* ChangableAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800EF292EDF6300469616 /* ChangableAttributeView.swift */; };
@@ -42,7 +42,7 @@
 
 /* Begin PBXFileReference section */
 		A18800E4292EBDFE00469616 /* AddNewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewView.swift; sourceTree = "<group>"; };
-		A18800E5292EBDFE00469616 /* AddNewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewViewModel.swift; sourceTree = "<group>"; };
+		A18800E5292EBDFE00469616 /* AddNewMovieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewMovieViewModel.swift; sourceTree = "<group>"; };
 		A18800E6292EBDFE00469616 /* AddNewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewCoordinator.swift; sourceTree = "<group>"; };
 		A18800EA292EBF2200469616 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		A18800EF292EDF6300469616 /* ChangableAttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangableAttributeView.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				A18800E4292EBDFE00469616 /* AddNewView.swift */,
-				A18800E5292EBDFE00469616 /* AddNewViewModel.swift */,
+				A18800E5292EBDFE00469616 /* AddNewMovieViewModel.swift */,
 				A18800EF292EDF6300469616 /* ChangableAttributeView.swift */,
 				A18800F1292F9DC900469616 /* PreviewPicker.swift */,
 			);
@@ -321,7 +321,7 @@
 				A18800E7292EBDFE00469616 /* AddNewView.swift in Sources */,
 				A18800F0292EDF6300469616 /* ChangableAttributeView.swift in Sources */,
 				A18800F6292FAF1500469616 /* ChangeStringValueView.swift in Sources */,
-				A18800E8292EBDFE00469616 /* AddNewViewModel.swift in Sources */,
+				A18800E8292EBDFE00469616 /* AddNewMovieViewModel.swift in Sources */,
 				A19103BB292C46EE00F57012 /* View+Extension.swift in Sources */,
 				A1910312292AAA5000F57012 /* AppDelegate.swift in Sources */,
 				A1910314292AAA5000F57012 /* SceneDelegate.swift in Sources */,

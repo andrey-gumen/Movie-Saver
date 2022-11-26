@@ -1,10 +1,18 @@
 import Combine
 import Foundation
 
-final class AddNewViewModel {
+protocol AddNewMovieViewModelInput {
+    var movedFromParentSubject: PassthroughSubject<Void, Never> { get }
+}
+
+protocol AddNewMoviewViewModelOutput {
+    
+}
+
+final class AddNewMovieViewModel {
     // outputs
     let movedFromParentSubject = PassthroughSubject<Void, Never>()
-    let changeNameSubject = PassthroughSubject<Void, Never>()
+    let changeNameSubject = PassthroughSubject<String, Never>()
     let changeRatingSubject = PassthroughSubject<Void, Never>()
     let changeReleaseDateSubject = PassthroughSubject<Void, Never>()
     let changeYoutubeLinkSubject = PassthroughSubject<Void, Never>()
