@@ -1,9 +1,9 @@
 import Combine
 
 final class ChangeStringValueViewModel {
-    let valueSubject = CurrentValueSubject<String, Never>("")
+    let valueSubject = CurrentValueSubject<String?, Never>(nil)
     
-    init(_ value: String) {
+    init(_ value: String?) {
         valueSubject.value = value
     }
 }

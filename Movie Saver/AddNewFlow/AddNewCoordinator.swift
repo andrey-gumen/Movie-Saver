@@ -7,8 +7,8 @@ final class AddNewCoordinator {
     private var cancellables: Set<AnyCancellable> = []
     private var flowFinalizer: (() -> Void)?
     
-    private let nameTransferSubject = PassthroughSubject<String, Never>()
-    private let youtubeLinkTransferSubject = PassthroughSubject<String, Never>()
+    private let nameTransferSubject = PassthroughSubject<String?, Never>()
+    private let youtubeLinkTransferSubject = PassthroughSubject<String?, Never>()
     
     init(_ rootNavigationController: UINavigationController) {
         self.rootNavigationController = rootNavigationController
@@ -43,7 +43,7 @@ final class AddNewCoordinator {
     }
     
     func showChangeNameScreen(name: String?) {
-        let viewModel = ChangeStringValueViewModel(name ?? "")
+        let viewModel = ChangeStringValueViewModel(name)
         let view = ChangeStringValueView(title: "Film name")
         view.viewModel = viewModel
         
@@ -55,7 +55,7 @@ final class AddNewCoordinator {
     }
     
     func showChangeYoutubeScreen(youtubeLink: String?) {
-        let viewModel = ChangeStringValueViewModel(youtubeLink ?? "")
+        let viewModel = ChangeStringValueViewModel(youtubeLink)
         let view = ChangeStringValueView(title: "Toutube Link")
         view.viewModel = viewModel
         
