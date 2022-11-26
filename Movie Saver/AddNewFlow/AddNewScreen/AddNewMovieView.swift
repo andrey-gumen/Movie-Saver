@@ -4,8 +4,8 @@ import UIKit
 final class AddNewMovieView: UIViewController {
 
     // MARK: - Properties
-    var viewModelInput: AddNewMovieViewModelInput!
-    var viewModelOutput: AddNewMoviewViewModelOutput!
+    var inputs: AddNewMovieViewModelInputs!
+    var outputs: AddNewMovieViewModelOutputs!
 
     // MARK: Public
     // MARK: Private
@@ -41,7 +41,7 @@ final class AddNewMovieView: UIViewController {
         super.viewDidDisappear(animated)
         restoreToolbar()
         if isMovingFromParent {
-            viewModelOutput.movedFromParentSubject.send()
+            outputs.movedFromParentSubject.send()
         }
     }
 
@@ -130,29 +130,29 @@ final class AddNewMovieView: UIViewController {
     private func configureSubjects() {
         // outputs
         nameView.changeButtonSubject
-            .sink { [weak self] value in self?.viewModelOutput.nameSubject.send(value) }
+            .sink { [weak self] value in self?.outputs.nameSubject.send(value) }
             .store(in: &cancellables)
         releaseDateView.changeButtonSubject
-            .sink { [weak self] value in self?.viewModelOutput.releaseDateSubject.send(value) }
+            .sink { [weak self] value in self?.outputs.releaseDateSubject.send(value) }
             .store(in: &cancellables)
         yourRatingView.changeButtonSubject
-            .sink { [weak self] value in self?.viewModelOutput.ratingSubject.send(value) }
+            .sink { [weak self] value in self?.outputs.ratingSubject.send(value) }
             .store(in: &cancellables)
         youtubeLinkView.changeButtonSubject
-            .sink { [weak self] value in self?.viewModelOutput.youtubeLinkSubject.send(value) }
+            .sink { [weak self] value in self?.outputs.youtubeLinkSubject.send(value) }
             .store(in: &cancellables)
 
         // inputs
-        viewModelInput.nameSubject
+        inputs.nameSubject
             .sink { [weak self] value in print(value ?? ""); self?.nameView.valueSubject.send(value) }
             .store(in: &cancellables)
-        viewModelInput.releaseDateSubject
+        inputs.releaseDateSubject
             .sink { [weak self] value in self?.releaseDateView.valueSubject.send(value) }
             .store(in: &cancellables)
-        viewModelInput.ratingSubject
+        inputs.ratingSubject
             .sink { [weak self] value in self?.yourRatingView.valueSubject.send(value) }
             .store(in: &cancellables)
-        viewModelInput.youtubeLinkSubject
+        inputs.youtubeLinkSubject
             .sink { [weak self] value in self?.youtubeLinkView.valueSubject.send(value) }
             .store(in: &cancellables)
     }

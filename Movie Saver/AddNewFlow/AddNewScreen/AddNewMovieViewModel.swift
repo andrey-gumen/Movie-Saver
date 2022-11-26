@@ -1,25 +1,40 @@
 import Combine
 import Foundation
 
-protocol AddNewMovieViewModelInput {
-    var movedFromParentSubject: PassthroughSubject<Void, Never> { get }
+protocol AddNewMovieViewModelInputs {
+    var nameSubject: any Subject<String?, Never> { get }
+    var ratingSubject: any Subject<Float?, Never> { get }
+    var releaseDateSubject: any Subject<Date?, Never>{ get }
+    var youtubeLinkSubject: any Subject<String?, Never> { get }
 }
 
-protocol AddNewMoviewViewModelOutput {
+protocol AddNewMovieViewModelOutputs {
+    var movedFromParentSubject: any Subject<Void, Never> { get }
     
+    var nameSubject: any Subject<String?, Never> { get }
+    var ratingSubject: any Subject<Float?, Never> { get }
+    var releaseDateSubject: any Subject<Date?, Never>{ get }
+    var youtubeLinkSubject: any Subject<String?, Never> { get }
 }
 
 final class AddNewMovieViewModel {
-    // outputs
-    let movedFromParentSubject = PassthroughSubject<Void, Never>()
-    let changeNameSubject = PassthroughSubject<String, Never>()
-    let changeRatingSubject = PassthroughSubject<Void, Never>()
-    let changeReleaseDateSubject = PassthroughSubject<Void, Never>()
-    let changeYoutubeLinkSubject = PassthroughSubject<Void, Never>()
     
-    // unputs
-    let nameValueSubject = PassthroughSubject<String, Never>()
-    let ratingValueSubject = PassthroughSubject<Float, Never>()
-    let releaseDateValueSubject = PassthroughSubject<Date, Never>()
-    let youtubeLinkValueSubject = PassthroughSubject<String, Never>()
+    let inputs: AddNewMovieViewModelInputs = Inputs()
+    let outputs: AddNewMovieViewModelOutputs = Outputs()
+    
+    private struct Inputs: AddNewMovieViewModelInputs {
+        let nameSubject: any Subject<String?, Never> = PassthroughSubject<String?, Never>()
+        let ratingSubject: any Subject<Float?, Never> = PassthroughSubject<Float?, Never>()
+        let releaseDateSubject: any Subject<Date?, Never> = PassthroughSubject<Date?, Never>()
+        let youtubeLinkSubject: any Subject<String?, Never> = PassthroughSubject<String?, Never>()
+    }
+
+    private struct Outputs: AddNewMovieViewModelOutputs {
+        let movedFromParentSubject: any Subject<Void, Never> = PassthroughSubject<Void, Never>()
+        let nameSubject: any Subject<String?, Never> = PassthroughSubject<String?, Never>()
+        let ratingSubject: any Subject<Float?, Never> = PassthroughSubject<Float?, Never>()
+        let releaseDateSubject: any Subject<Date?, Never> = PassthroughSubject<Date?, Never>()
+        let youtubeLinkSubject: any Subject<String?, Never> = PassthroughSubject<String?, Never>()
+    }
+    
 }
