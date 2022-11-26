@@ -1,24 +1,24 @@
 import Combine
 import UIKit
 
-final class AddNewView: UIViewController {
+final class AddNewMovieView: UIViewController {
 
     // MARK: - Properties
-    var viewModel: AddNewViewModel!
+    var viewModelInput: AddNewMovieViewModelInput!
+    var viewModelOutput: AddNewMoviewViewModelOutput!
 
     // MARK: Public
     // MARK: Private
     private var cancellables: Set<AnyCancellable> = []
 
     private let titleLabel = UILabel()
-    
     private let previewPicker = PreviewPicker()
 
     private let changablesContainer = UIView()
-    private let nameView = ChangableAttributeView()
-    private let releaseDateView = ChangableAttributeView()
-    private let yourRatingView = ChangableAttributeView()
-    private let youtubeLinkView = ChangableAttributeView()
+    private let nameView = ChangableAttributeView<String>(title: "Name")
+    private let releaseDateView = ChangableAttributeView<Date>(title: "Release Date")
+    private let yourRatingView = ChangableAttributeView<Float>(title: "Your Rating")
+    private let youtubeLinkView = ChangableAttributeView<String>(title: "Youtube Link")
     
     private let descriptionTitleLabel = UILabel()
     private let descriptionTextField = UITextView()
@@ -41,7 +41,7 @@ final class AddNewView: UIViewController {
         super.viewDidDisappear(animated)
         restoreToolbar()
         if isMovingFromParent {
-            viewModel.movedFromParentSubject.send()
+            viewModelOutput.movedFromParentSubject.send()
         }
     }
 
@@ -69,11 +69,6 @@ final class AddNewView: UIViewController {
         titleLabel.font = UIFont(name: "SFProDisplay-Bold", size: 34)
         
         previewPicker.viewCntroller = self
-        
-        nameView.updateTille(title: "Name")
-        releaseDateView.updateTille(title: "Release Date")
-        yourRatingView.updateTille(title: "Your Rating")
-        youtubeLinkView.updateTille(title: "Youtube Link")
         
         descriptionTitleLabel.text = "Description"
         descriptionTitleLabel.textAlignment = .center
@@ -134,41 +129,31 @@ final class AddNewView: UIViewController {
     
     private func configureSubjects() {
         // outputs
-        nameView.changeSubject
-            .sink { [weak self] in
-                self?.viewModel.changeNameSubject.send()
-            }
+        nameView.changeButtonSubject
+            .sink { [weak self] value in self?.viewModelOutput.nameSubject.send(value) }
             .store(in: &cancellables)
-        
-        releaseDateView.changeSubject
-            .sink { [weak self] in
-                self?.viewModel.changeReleaseDateSubject.send()
-            }
+        releaseDateView.changeButtonSubject
+            .sink { [weak self] value in self?.viewModelOutput.releaseDateSubject.send(value) }
             .store(in: &cancellables)
-        
-        yourRatingView.changeSubject
-            .sink { [weak self] in
-                self?.viewModel.changeRatingSubject.send()
-            }
+        yourRatingView.changeButtonSubject
+            .sink { [weak self] value in self?.viewModelOutput.ratingSubject.send(value) }
             .store(in: &cancellables)
-        
-        youtubeLinkView.changeSubject
-            .sink { [weak self] in
-                self?.viewModel.changeYoutubeLinkSubject.send()
-            }
+        youtubeLinkView.changeButtonSubject
+            .sink { [weak self] value in self?.viewModelOutput.youtubeLinkSubject.send(value) }
             .store(in: &cancellables)
-        
+
         // inputs
-        viewModel.nameValueSubject
-            .sink { [weak self] value in
-                self?.nameView.updateValue(value)
-            }
+        viewModelInput.nameSubject
+            .sink { [weak self] value in print(value ?? ""); self?.nameView.valueSubject.send(value) }
             .store(in: &cancellables)
-        
-        viewModel.youtubeLinkValueSubject
-            .sink { [weak self] value in
-                self?.youtubeLinkView.updateValue(value)
-            }
+        viewModelInput.releaseDateSubject
+            .sink { [weak self] value in self?.releaseDateView.valueSubject.send(value) }
+            .store(in: &cancellables)
+        viewModelInput.ratingSubject
+            .sink { [weak self] value in self?.yourRatingView.valueSubject.send(value) }
+            .store(in: &cancellables)
+        viewModelInput.youtubeLinkSubject
+            .sink { [weak self] value in self?.youtubeLinkView.valueSubject.send(value) }
             .store(in: &cancellables)
     }
 
