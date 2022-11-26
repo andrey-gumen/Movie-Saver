@@ -64,6 +64,7 @@ final class ChangeStringValueView: UIViewController {
         valueTextField.textAlignment = .left
         valueTextField.font = UIFont(name: "Manrope-Regular", size: 17)
         valueTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
+        valueTextField.becomeFirstResponder()
         
         saveButton.setTitle("Save", for: .normal)
         saveButton.setTitleColor(.systemBlue, for: .normal)
