@@ -63,17 +63,20 @@ final class ChangableAttributeView<TYPE>: UIView {
     private func configureConstraints() {
         titleLabel.pin
             .top(to: self)
-            .centerX(in: self)
+            .leading(to: self)
+            .trailing(to: self)
             .height(to: 27)
 
         valueLabel.pin
             .below(of: titleLabel)
-            .centerX(in: titleLabel)
+            .leading(to: self)
+            .trailing(to: self)
             .height(to: 18)
 
         changeButton.pin
             .below(of: valueLabel)
-            .centerX(in: titleLabel)
+            .leading(to: self)
+            .trailing(to: self)
             .height(to: 27)
     }
     
