@@ -17,8 +17,10 @@ final class ChangeStringValueView: UIViewController {
     //MARK: - Subjects
     private var cancellables: Set<AnyCancellable> = []
         
+    // local cache for value
+    private let valueSubject = CurrentValueSubject<String, Never>("")
     private var isValueValidPublisher: AnyPublisher<Bool, Never>{
-        viewModel.valueSubject
+        valueSubject
             .map { !$0.isEmpty }
             .replaceNil(with: false)
             .eraseToAnyPublisher()
@@ -58,12 +60,14 @@ final class ChangeStringValueView: UIViewController {
         titleLabel.font = UIFont(name: "Manrope-Medium", size: 24)
         
         valueTextField.placeholder = "Name"
+        valueTextField.text = viewModel.valueSubject.value
         valueTextField.textAlignment = .left
         valueTextField.font = UIFont(name: "Manrope-Regular", size: 17)
         valueTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
         
         saveButton.setTitle("Save", for: .normal)
         saveButton.setTitleColor(.systemBlue, for: .normal)
+        saveButton.setTitleColor(.systemGray, for: .disabled)
         saveButton.addTarget(self, action: #selector(saveButtonDidTapped), for: .touchUpInside)
         
         isValueValidPublisher
@@ -91,10 +95,11 @@ final class ChangeStringValueView: UIViewController {
 
     // MARK: - Helpers
     @objc private func saveButtonDidTapped() {
+        viewModel.valueSubject.send(valueSubject.value)
         navigationController?.popViewController(animated: true)
     }
     
     @objc func valueChanged(_ textField: UITextField) {
-        viewModel.valueSubject.send(textField.text ?? "")
+        valueSubject.send(textField.text ?? "")
     }
 }
