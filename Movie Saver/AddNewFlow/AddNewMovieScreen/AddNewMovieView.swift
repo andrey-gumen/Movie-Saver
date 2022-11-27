@@ -16,8 +16,8 @@ final class AddNewMovieView: UIViewController {
 
     private let changablesContainer = UIView()
     private let nameView = ChangableAttributeView<String>(title: "Name")
-    private let releaseDateView = ChangableAttributeView<Date>(title: "Release Date")
-    private let yourRatingView = ChangableAttributeView<Float>(title: "Your Rating")
+    private let releaseDateView = ChangableAttributeView<Date>(title: "Release Date", formatter: ShortDateFormatter() )
+    private let yourRatingView = ChangableAttributeView<Float>(title: "Your Rating", formatter: NumberFormatter())
     private let youtubeLinkView = ChangableAttributeView<String>(title: "Youtube Link")
     
     private let descriptionTitleLabel = UILabel()
@@ -177,7 +177,7 @@ final class AddNewMovieView: UIViewController {
         print(#function)
     }
     
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+    @objc private func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         descriptionTextView.resignFirstResponder()
     }
 }

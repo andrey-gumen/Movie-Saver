@@ -17,11 +17,17 @@ final class ChangableAttributeView<TYPE>: UIView {
     let changeButtonSubject = PassthroughSubject<TYPE?, Never>()
 
     private var cancellables: Set<AnyCancellable> = []
+    private var formatter: Formatter?
     
     // MARK: - Lifecycle
     convenience init(title: String) {
+        self.init(title: title, formatter: nil)
+    }
+    
+    convenience init(title: String, formatter: Formatter?) {
         self.init(frame: CGRect.zero)
         titleSubject.value = title
+        self.formatter = formatter
     }
     
     override init(frame: CGRect) {
@@ -83,19 +89,26 @@ final class ChangableAttributeView<TYPE>: UIView {
     private func configureSubjects() {
         titleSubject.sink { [weak self] title in
             self?.titleLabel.text = title
-            self?.titleLabel.sizeToFit()
         }
         .store(in: &cancellables)
         
         valueSubject.sink { [weak self] value in
-            self?.valueLabel.text = value != nil ? "\(value!)" : "-"
-            self?.valueLabel.sizeToFit()
+            self?.valueLabel.text = self?.format(value: value)
         }
         .store(in: &cancellables)
     }
-
+    
     // MARK: - Helpers
-    @objc func changeButtonDidTapped() {
+    @objc private func changeButtonDidTapped() {
         changeButtonSubject.send(valueSubject.value)
     }
+    
+    private func format(value: TYPE?) -> String {
+        guard let value else {
+            return "-"
+        }
+        
+        return formatter?.string(for: value) ?? "\(value)"
+    }
+    
 }
