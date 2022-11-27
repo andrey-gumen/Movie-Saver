@@ -42,6 +42,9 @@ final class AddNewCoordinator {
         youtubeLinkTransferSubject
             .sink { value in viewModel.inputs.youtubeLinkSubject.send(value) }
             .store(in: &cancellables)
+        releaseDateTransferSubject
+            .sink { value in viewModel.inputs.releaseDateSubject.send(value) }
+            .store(in: &cancellables)
         
         rootNavigationController.pushViewController(view, animated: true)
     }
