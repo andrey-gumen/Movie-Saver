@@ -9,6 +9,7 @@ final class AddNewCoordinator {
     
     private let nameTransferSubject = PassthroughSubject<String?, Never>()
     private let youtubeLinkTransferSubject = PassthroughSubject<String?, Never>()
+    private let releaseDateTransferSubject = PassthroughSubject<Date?, Never>()
     
     init(_ rootNavigationController: UINavigationController) {
         self.rootNavigationController = rootNavigationController
@@ -30,6 +31,9 @@ final class AddNewCoordinator {
             .store(in: &cancellables)
         viewModel.outputs.youtubeLinkSubject
             .sink { [weak self] value in self?.showChangeYoutubeScreen(youtubeLink: value) }
+            .store(in: &cancellables)
+        viewModel.outputs.releaseDateSubject
+            .sink { [weak self] value in self?.showChangeReleasDateScreen(releaseDate: value) }
             .store(in: &cancellables)
         
         nameTransferSubject
@@ -63,6 +67,18 @@ final class AddNewCoordinator {
         
         viewModel.valueSubject
             .sink { [weak self] value in self?.youtubeLinkTransferSubject.send(value) }
+            .store(in: &cancellables)
+    }
+    
+    func showChangeReleasDateScreen(releaseDate: Date?) {
+        let viewModel = ChangeDateValueViewModel(releaseDate)
+        let view = ChangeDateValueView()
+        view.viewModel = viewModel
+        
+        rootNavigationController.pushViewController(view, animated: true)
+        
+        viewModel.valueSubject
+            .sink { [weak self] value in self?.releaseDateTransferSubject.send(value) }
             .store(in: &cancellables)
     }
     
