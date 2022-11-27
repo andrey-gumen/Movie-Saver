@@ -9,19 +9,53 @@ final class AddNewMovieView: UIViewController {
 
     // MARK: Public
     // MARK: Private
-    private var cancellables: Set<AnyCancellable> = []
-
     private let titleLabel = UILabel()
+    private var saveButton: UIBarButtonItem?
+
     private let previewPicker = PreviewPicker()
 
     private let changablesContainer = UIView()
     private let nameView = ChangableAttributeView<String>(title: "Name")
-    private let releaseDateView = ChangableAttributeView<Date>(title: "Release Date", formatter: ShortDateFormatter() )
+    private let releaseDateView = ChangableAttributeView<Date>(title: "Release Date", formatter: ShortDateFormatter())
     private let yourRatingView = ChangableAttributeView<Float>(title: "Your Rating", formatter: RatingFormatter())
     private let youtubeLinkView = ChangableAttributeView<String>(title: "Youtube Link")
-    
+
     private let descriptionTitleLabel = UILabel()
     private let descriptionTextView = UITextView()
+    
+    //MARK: - Subjects
+    private var cancellables: Set<AnyCancellable> = []
+        
+    private var isNameValidPublisher: AnyPublisher<Bool, Never>{
+        nameView.valueSubject
+            .map { $0?.isEmpty == false }
+            .replaceNil(with: false)
+            .eraseToAnyPublisher()
+    }
+    
+    private var isReleaseDateValidPublisher: AnyPublisher<Bool, Never>{
+        releaseDateView.valueSubject
+            .map { $0?.compare(Date.now) != .orderedDescending }
+            .replaceNil(with: false)
+            .eraseToAnyPublisher()
+    }
+    
+    private var isRatingValidPublisher: AnyPublisher<Bool, Never>{
+        yourRatingView.valueSubject
+            .map { $0 != nil ? ($0! >= 0 && $0! <= 10) : false }
+            .replaceNil(with: false)
+            .eraseToAnyPublisher()
+    }
+    
+    private var isDataValidPublisher: AnyPublisher<Bool, Never>{
+        Publishers.CombineLatest3(
+            isNameValidPublisher,
+            isReleaseDateValidPublisher,
+            isRatingValidPublisher
+        )
+        .map { $0 && $1 && $2 }
+        .eraseToAnyPublisher()
+    }
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -49,7 +83,7 @@ final class AddNewMovieView: UIViewController {
     // MARK: - Setups
     private func addSubview() {
         view.addSubview(titleLabel)
-        
+
         view.addSubview(previewPicker)
 
         view.addSubview(changablesContainer)
@@ -57,7 +91,7 @@ final class AddNewMovieView: UIViewController {
         changablesContainer.addSubview(releaseDateView)
         changablesContainer.addSubview(yourRatingView)
         changablesContainer.addSubview(youtubeLinkView)
-        
+
         view.addSubview(descriptionTitleLabel)
         view.addSubview(descriptionTextView)
     }
@@ -67,18 +101,18 @@ final class AddNewMovieView: UIViewController {
 
         titleLabel.text = "Add new"
         titleLabel.font = UIFont(name: "SFProDisplay-Bold", size: 34)
-        
+
         previewPicker.viewCntroller = self
-        
+
         descriptionTitleLabel.text = "Description"
         descriptionTitleLabel.textAlignment = .center
         descriptionTitleLabel.font = UIFont(name: "Manrope-Medium", size: 18)
-        
+
         descriptionTextView.font = UIFont(name: "Manrope-Regular", size: 14)
         descriptionTextView.textAlignment = .left
         descriptionTextView.delegate = self
         textViewDidEndEditing(descriptionTextView)
-        
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
     }
@@ -89,7 +123,7 @@ final class AddNewMovieView: UIViewController {
             .leading(to: view, offset: 16)
             .trailing(to: view, offset: 16)
             .height(to: 41)
-        
+
         previewPicker.pin
             .below(of: titleLabel, offset: 35)
             .centerX(in: view)
@@ -130,7 +164,7 @@ final class AddNewMovieView: UIViewController {
             .centerX(in: view)
             .size(to: CGSize(width: 311, height: 145))
     }
-    
+
     private func configureSubjects() {
         // outputs
         nameView.changeButtonSubject
@@ -162,13 +196,19 @@ final class AddNewMovieView: UIViewController {
     }
 
     private func configureToolbar() {
-        let barButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidTapped))
-        navigationItem.setRightBarButton(barButton, animated: false)
+        saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidTapped))
+        navigationItem.setRightBarButton(saveButton, animated: false)
         navigationController?.isToolbarHidden = false
+        
+        // ui
+        isDataValidPublisher
+            .assign(to: \.isEnabled, on: saveButton!)
+            .store(in: &cancellables)
     }
 
     private func restoreToolbar() {
-        navigationItem.setRightBarButton(nil, animated: false)
+        saveButton = nil
+        navigationItem.setRightBarButton(saveButton, animated: false)
         navigationController?.isToolbarHidden = true
     }
 
@@ -176,8 +216,8 @@ final class AddNewMovieView: UIViewController {
     @objc private func saveButtonDidTapped() {
         print(#function)
     }
-    
-    @objc private func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+
+    @objc private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         descriptionTextView.resignFirstResponder()
     }
 }
@@ -185,19 +225,18 @@ final class AddNewMovieView: UIViewController {
 // MARK: TextView extension
 
 extension AddNewMovieView: UITextViewDelegate {
-    
+
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = .black
         }
     }
-    
+
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Description"
             textView.textColor = .lightGray
         }
     }
-    
 }
