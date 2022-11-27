@@ -16,3 +16,18 @@ final class ShortDateFormatter: DateFormatter {
     }
     
 }
+
+final class RatingFormatter: NumberFormatter {
+    
+    override init() {
+        super.init()
+        numberStyle = .decimal
+        self.maximumFractionDigits = 1
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
