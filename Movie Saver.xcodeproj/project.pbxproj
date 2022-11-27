@@ -40,6 +40,7 @@
 		A19103BB292C46EE00F57012 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19103BA292C46EE00F57012 /* View+Extension.swift */; };
 		A1FC5E2F2933B94100AD23F5 /* ChangeDateValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E2D2933B94100AD23F5 /* ChangeDateValueViewModel.swift */; };
 		A1FC5E302933B94100AD23F5 /* ChangeDateValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E2E2933B94100AD23F5 /* ChangeDateValueView.swift */; };
+		A1FC5E322933E66D00AD23F5 /* CustomFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E312933E66D00AD23F5 /* CustomFormatters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		A19103BA292C46EE00F57012 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		A1FC5E2D2933B94100AD23F5 /* ChangeDateValueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateValueViewModel.swift; sourceTree = "<group>"; };
 		A1FC5E2E2933B94100AD23F5 /* ChangeDateValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateValueView.swift; sourceTree = "<group>"; };
+		A1FC5E312933E66D00AD23F5 /* CustomFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFormatters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				A18800E5292EBDFE00469616 /* AddNewMovieViewModel.swift */,
 				A18800EF292EDF6300469616 /* ChangableAttributeView.swift */,
 				A18800F1292F9DC900469616 /* PreviewPicker.swift */,
+				A1FC5E312933E66D00AD23F5 /* CustomFormatters.swift */,
 			);
 			path = AddNewMovieScreen;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				A191031C292AAA5000F57012 /* Movie_Saver.xcdatamodeld in Sources */,
 				A191036E292AEDC200F57012 /* MovieCell.swift in Sources */,
 				A191034B292AB0C100F57012 /* MainListViewModel.swift in Sources */,
+				A1FC5E322933E66D00AD23F5 /* CustomFormatters.swift in Sources */,
 				A191034A292AB0C100F57012 /* MainListView.swift in Sources */,
 				A1FC5E2F2933B94100AD23F5 /* ChangeDateValueViewModel.swift in Sources */,
 				A1910350292AB1C600F57012 /* GalleryCoordinator.swift in Sources */,
