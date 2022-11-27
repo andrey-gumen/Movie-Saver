@@ -50,6 +50,7 @@ final class ChangeDateValueView: UIViewController {
         
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
+        datePicker.date = viewModel.valueSubject.value ?? Date.now
         datePicker.addTarget(self, action: #selector(dateValueChanged), for: .valueChanged)
         
         saveButton.setTitle("Save", for: .normal)
