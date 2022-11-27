@@ -48,9 +48,10 @@ final class ChangeDateValueView: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "Manrope-Medium", size: 24)
         
+        valueSubject.value = viewModel.valueSubject.value ?? Date.now
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.datePickerMode = .date
-        datePicker.date = viewModel.valueSubject.value ?? Date.now
+        datePicker.date = valueSubject.value
         datePicker.addTarget(self, action: #selector(dateValueChanged), for: .valueChanged)
         
         saveButton.setTitle("Save", for: .normal)

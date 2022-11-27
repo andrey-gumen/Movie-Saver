@@ -17,7 +17,7 @@ final class AddNewMovieView: UIViewController {
     private let changablesContainer = UIView()
     private let nameView = ChangableAttributeView<String>(title: "Name")
     private let releaseDateView = ChangableAttributeView<Date>(title: "Release Date", formatter: ShortDateFormatter() )
-    private let yourRatingView = ChangableAttributeView<Float>(title: "Your Rating", formatter: NumberFormatter())
+    private let yourRatingView = ChangableAttributeView<Float>(title: "Your Rating", formatter: RatingFormatter())
     private let youtubeLinkView = ChangableAttributeView<String>(title: "Youtube Link")
     
     private let descriptionTitleLabel = UILabel()

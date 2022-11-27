@@ -48,9 +48,10 @@ final class ChangeRatingValueView: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "Manrope-Medium", size: 24)
 
+        valueSubject.value = viewModel.valueSubject.value ?? 5
         numberPicker.delegate = self
         numberPicker.dataSource = self
-        numberPicker.selectRow(pickerValue2row(viewModel.valueSubject.value), inComponent: 0, animated: false)
+        numberPicker.selectRow(pickerValue2row(valueSubject.value), inComponent: 0, animated: false)
         
         saveButton.setTitle("Save", for: .normal)
         saveButton.setTitleColor(.systemBlue, for: .normal)
@@ -86,12 +87,8 @@ final class ChangeRatingValueView: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    private func pickerValue2row(_ value: Float?) -> Int {
-        if let value {
-            return pickerValues.firstIndex(of: value) ?? pickerValues.count / 2
-        }
-        
-        return pickerValues.count / 2
+    private func pickerValue2row(_ value: Float) -> Int {
+        return pickerValues.firstIndex(of: value) ?? pickerValues.count / 2
     }
 }
 
@@ -110,7 +107,7 @@ extension ChangeRatingValueView: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         String(format: "%.1f", pickerValues[row])
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         valueSubject.send(pickerValues[row])
     }
