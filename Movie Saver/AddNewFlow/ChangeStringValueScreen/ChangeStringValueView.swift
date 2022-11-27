@@ -8,11 +8,10 @@ final class ChangeStringValueView: UIViewController {
 
     // MARK: Public
     // MARK: Private
-    private var titleCache = ""
-    
     private let titleLabel = UILabel()
     private let valueTextField = UITextField()
     private let saveButton = UIButton()
+    private var validator: ((String) -> Bool)?
     
     //MARK: - Subjects
     private var cancellables: Set<AnyCancellable> = []
@@ -21,16 +20,18 @@ final class ChangeStringValueView: UIViewController {
     private let valueSubject = CurrentValueSubject<String, Never>("")
     private var isValueValidPublisher: AnyPublisher<Bool, Never>{
         valueSubject
-            .map { !$0.isEmpty }
-            .replaceNil(with: false)
+            .map { self.validator?($0) ?? false }
             .eraseToAnyPublisher()
     }
     
 
     // MARK: - Lifecycle
-    init(title: String) {
+    init(title: String, keyboardType: UIKeyboardType = .default, validator: @escaping ((String) -> Bool) = { $0.isEmpty == false }) {
         super.init(nibName: nil, bundle: nil)
-        titleCache = title
+        
+        titleLabel.text = title
+        valueTextField.keyboardType = keyboardType
+        self.validator = validator
     }
     
     required init?(coder: NSCoder) {
@@ -55,12 +56,12 @@ final class ChangeStringValueView: UIViewController {
     private func configureUI() {
         view.backgroundColor = ColorScheme.viewBackground
 
-        titleLabel.text = titleCache
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "Manrope-Medium", size: 24)
         
+        valueSubject.value = viewModel.valueSubject.value ?? ""
         valueTextField.placeholder = "Name"
-        valueTextField.text = viewModel.valueSubject.value
+        valueTextField.text = valueSubject.value
         valueTextField.textAlignment = .left
         valueTextField.font = UIFont(name: "Manrope-Regular", size: 17)
         valueTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
@@ -103,4 +104,5 @@ final class ChangeStringValueView: UIViewController {
     @objc private func valueChanged(_ textField: UITextField) {
         valueSubject.send(textField.text ?? "")
     }
+    
 }

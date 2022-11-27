@@ -70,7 +70,7 @@ final class AddNewCoordinator {
     
     func showChangeYoutubeScreen(youtubeLink: String?) {
         let viewModel = ChangeStringValueViewModel(youtubeLink)
-        let view = ChangeStringValueView(title: "Toutube Link")
+        let view = ChangeStringValueView(title: "Toutube Link", keyboardType: .URL, validator: { $0.isURL() })
         view.viewModel = viewModel
         
         rootNavigationController.pushViewController(view, animated: true)
