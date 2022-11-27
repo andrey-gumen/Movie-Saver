@@ -41,6 +41,8 @@
 		A1FC5E2F2933B94100AD23F5 /* ChangeDateValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E2D2933B94100AD23F5 /* ChangeDateValueViewModel.swift */; };
 		A1FC5E302933B94100AD23F5 /* ChangeDateValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E2E2933B94100AD23F5 /* ChangeDateValueView.swift */; };
 		A1FC5E322933E66D00AD23F5 /* CustomFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E312933E66D00AD23F5 /* CustomFormatters.swift */; };
+		A1FC5E362933E87200AD23F5 /* ChangeRatingValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E342933E87200AD23F5 /* ChangeRatingValueViewModel.swift */; };
+		A1FC5E372933E87200AD23F5 /* ChangeRatingValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E352933E87200AD23F5 /* ChangeRatingValueView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,8 @@
 		A1FC5E2D2933B94100AD23F5 /* ChangeDateValueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateValueViewModel.swift; sourceTree = "<group>"; };
 		A1FC5E2E2933B94100AD23F5 /* ChangeDateValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateValueView.swift; sourceTree = "<group>"; };
 		A1FC5E312933E66D00AD23F5 /* CustomFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFormatters.swift; sourceTree = "<group>"; };
+		A1FC5E342933E87200AD23F5 /* ChangeRatingValueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeRatingValueViewModel.swift; sourceTree = "<group>"; };
+		A1FC5E352933E87200AD23F5 /* ChangeRatingValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeRatingValueView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 				A18800E6292EBDFE00469616 /* AddNewCoordinator.swift */,
 				A18800E3292EBDFE00469616 /* AddNewMovieScreen */,
 				A1FC5E2C2933B94100AD23F5 /* ChangeDateValueScreen */,
+				A1FC5E332933E87200AD23F5 /* ChangeRatingValueScreen */,
 				A18800F3292FAF1500469616 /* ChangeStringValueScreen */,
 			);
 			path = AddNewFlow;
@@ -238,6 +243,15 @@
 			path = ChangeDateValueScreen;
 			sourceTree = "<group>";
 		};
+		A1FC5E332933E87200AD23F5 /* ChangeRatingValueScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A1FC5E342933E87200AD23F5 /* ChangeRatingValueViewModel.swift */,
+				A1FC5E352933E87200AD23F5 /* ChangeRatingValueView.swift */,
+			);
+			path = ChangeRatingValueScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,12 +339,14 @@
 			files = (
 				A1910343292AB0C100F57012 /* DetailsView.swift in Sources */,
 				A18800F2292F9DC900469616 /* PreviewPicker.swift in Sources */,
+				A1FC5E362933E87200AD23F5 /* ChangeRatingValueViewModel.swift in Sources */,
 				A191031C292AAA5000F57012 /* Movie_Saver.xcdatamodeld in Sources */,
 				A191036E292AEDC200F57012 /* MovieCell.swift in Sources */,
 				A191034B292AB0C100F57012 /* MainListViewModel.swift in Sources */,
 				A1FC5E322933E66D00AD23F5 /* CustomFormatters.swift in Sources */,
 				A191034A292AB0C100F57012 /* MainListView.swift in Sources */,
 				A1FC5E2F2933B94100AD23F5 /* ChangeDateValueViewModel.swift in Sources */,
+				A1FC5E372933E87200AD23F5 /* ChangeRatingValueView.swift in Sources */,
 				A1910350292AB1C600F57012 /* GalleryCoordinator.swift in Sources */,
 				A18800EB292EBF2200469616 /* SceneCoordinator.swift in Sources */,
 				A1FC5E302933B94100AD23F5 /* ChangeDateValueView.swift in Sources */,
