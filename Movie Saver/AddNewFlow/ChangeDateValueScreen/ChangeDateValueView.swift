@@ -72,7 +72,6 @@ final class ChangeDateValueView: UIViewController {
         datePicker.pin
             .below(of: titleLabel, offset: 42)
             .centerX(in: view)
-            .size(to: CGSize(width: 375, height: 194))
 
         saveButton.pin
             .below(of: datePicker, offset: 42)
@@ -86,7 +85,7 @@ final class ChangeDateValueView: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func dateValueChanged(_ datePicker: UIDatePicker) {
+    @objc private func dateValueChanged(_ datePicker: UIDatePicker) {
         valueSubject.send(datePicker.date)
     }
 }

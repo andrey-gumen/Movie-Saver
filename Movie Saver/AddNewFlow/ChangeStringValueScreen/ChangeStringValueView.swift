@@ -100,7 +100,7 @@ final class ChangeStringValueView: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func valueChanged(_ textField: UITextField) {
+    @objc private func valueChanged(_ textField: UITextField) {
         valueSubject.send(textField.text ?? "")
     }
 }
