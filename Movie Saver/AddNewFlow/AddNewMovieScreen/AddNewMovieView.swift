@@ -214,7 +214,7 @@ final class AddNewMovieView: UIViewController {
 
     // MARK: - Helpers
     @objc private func saveButtonDidTapped() {
-        print(#function)
+        outputs.saveMovieSubject.send()
     }
 
     @objc private func dismissKeyboard(_ sender: UITapGestureRecognizer) {

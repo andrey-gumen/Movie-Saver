@@ -10,6 +10,7 @@ protocol AddNewMovieViewModelInputs {
 
 protocol AddNewMovieViewModelOutputs {
     var movedFromParentSubject: any Subject<Void, Never> { get }
+    var saveMovieSubject: any Subject<Void, Never> { get }
     
     var nameSubject: any Subject<String?, Never> { get }
     var ratingSubject: any Subject<Float?, Never> { get }
@@ -31,6 +32,8 @@ final class AddNewMovieViewModel {
 
     private struct Outputs: AddNewMovieViewModelOutputs {
         let movedFromParentSubject: any Subject<Void, Never> = PassthroughSubject<Void, Never>()
+        let saveMovieSubject: any Subject<Void, Never> = PassthroughSubject<Void, Never>()
+        
         let nameSubject: any Subject<String?, Never> = PassthroughSubject<String?, Never>()
         let ratingSubject: any Subject<Float?, Never> = PassthroughSubject<Float?, Never>()
         let releaseDateSubject: any Subject<Date?, Never> = PassthroughSubject<Date?, Never>()
