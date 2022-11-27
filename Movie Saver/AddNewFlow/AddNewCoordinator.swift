@@ -10,6 +10,7 @@ final class AddNewCoordinator {
     private let nameTransferSubject = PassthroughSubject<String?, Never>()
     private let youtubeLinkTransferSubject = PassthroughSubject<String?, Never>()
     private let releaseDateTransferSubject = PassthroughSubject<Date?, Never>()
+    private let ratingTransferSubject = PassthroughSubject<Float?, Never>()
     
     init(_ rootNavigationController: UINavigationController) {
         self.rootNavigationController = rootNavigationController
@@ -35,6 +36,9 @@ final class AddNewCoordinator {
         viewModel.outputs.releaseDateSubject
             .sink { [weak self] value in self?.showChangeReleasDateScreen(releaseDate: value) }
             .store(in: &cancellables)
+        viewModel.outputs.ratingSubject
+            .sink { [weak self] value in self?.showChangeRatingScreen(rating: value) }
+            .store(in: &cancellables)
         
         nameTransferSubject
             .sink { value in viewModel.inputs.nameSubject.send(value) }
@@ -44,6 +48,9 @@ final class AddNewCoordinator {
             .store(in: &cancellables)
         releaseDateTransferSubject
             .sink { value in viewModel.inputs.releaseDateSubject.send(value) }
+            .store(in: &cancellables)
+        ratingTransferSubject
+            .sink { value in viewModel.inputs.ratingSubject.send(value) }
             .store(in: &cancellables)
         
         rootNavigationController.pushViewController(view, animated: true)
@@ -82,6 +89,18 @@ final class AddNewCoordinator {
         
         viewModel.valueSubject
             .sink { [weak self] value in self?.releaseDateTransferSubject.send(value) }
+            .store(in: &cancellables)
+    }
+    
+    func showChangeRatingScreen(rating: Float?) {
+        let viewModel = ChangeRatingValueViewModel(rating)
+        let view = ChangeRatingValueView()
+        view.viewModel = viewModel
+        
+        rootNavigationController.pushViewController(view, animated: true)
+        
+        viewModel.valueSubject
+            .sink { [weak self] value in self?.ratingTransferSubject.send(value) }
             .store(in: &cancellables)
     }
     
