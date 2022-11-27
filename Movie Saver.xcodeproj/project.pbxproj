@@ -44,6 +44,8 @@
 		A1FC5E362933E87200AD23F5 /* ChangeRatingValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E342933E87200AD23F5 /* ChangeRatingValueViewModel.swift */; };
 		A1FC5E372933E87200AD23F5 /* ChangeRatingValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E352933E87200AD23F5 /* ChangeRatingValueView.swift */; };
 		A1FC5E3929341E1100AD23F5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3829341E1100AD23F5 /* String+Extension.swift */; };
+		A1FC5E3D2934206500AD23F5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3B2934206500AD23F5 /* CoreDataManager.swift */; };
+		A1FC5E3E2934206500AD23F5 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3C2934206500AD23F5 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		A1FC5E342933E87200AD23F5 /* ChangeRatingValueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeRatingValueViewModel.swift; sourceTree = "<group>"; };
 		A1FC5E352933E87200AD23F5 /* ChangeRatingValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeRatingValueView.swift; sourceTree = "<group>"; };
 		A1FC5E3829341E1100AD23F5 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		A1FC5E3B2934206500AD23F5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A1FC5E3C2934206500AD23F5 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 		A1910310292AAA5000F57012 /* Movie Saver */ = {
 			isa = PBXGroup;
 			children = (
+				A1FC5E3A2934201F00AD23F5 /* BD */,
 				A1910356292AE91500F57012 /* Fonts */,
 				A18800E2292EBDFE00469616 /* AddNewFlow */,
 				A1910331292AAFDB00F57012 /* GalleryFlow */,
@@ -255,6 +260,15 @@
 			path = ChangeRatingValueScreen;
 			sourceTree = "<group>";
 		};
+		A1FC5E3A2934201F00AD23F5 /* BD */ = {
+			isa = PBXGroup;
+			children = (
+				A1FC5E3B2934206500AD23F5 /* CoreDataManager.swift */,
+				A1FC5E3C2934206500AD23F5 /* Movie.swift */,
+			);
+			path = BD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -351,6 +365,7 @@
 				A1FC5E3929341E1100AD23F5 /* String+Extension.swift in Sources */,
 				A1FC5E2F2933B94100AD23F5 /* ChangeDateValueViewModel.swift in Sources */,
 				A1FC5E372933E87200AD23F5 /* ChangeRatingValueView.swift in Sources */,
+				A1FC5E3E2934206500AD23F5 /* Movie.swift in Sources */,
 				A1910350292AB1C600F57012 /* GalleryCoordinator.swift in Sources */,
 				A18800EB292EBF2200469616 /* SceneCoordinator.swift in Sources */,
 				A1FC5E302933B94100AD23F5 /* ChangeDateValueView.swift in Sources */,
@@ -360,6 +375,7 @@
 				A18800E9292EBDFE00469616 /* AddNewCoordinator.swift in Sources */,
 				A18800E7292EBDFE00469616 /* AddNewMovieView.swift in Sources */,
 				A18800F0292EDF6300469616 /* ChangableAttributeView.swift in Sources */,
+				A1FC5E3D2934206500AD23F5 /* CoreDataManager.swift in Sources */,
 				A18800F6292FAF1500469616 /* ChangeStringValueView.swift in Sources */,
 				A18800E8292EBDFE00469616 /* AddNewMovieViewModel.swift in Sources */,
 				A19103BB292C46EE00F57012 /* View+Extension.swift in Sources */,
