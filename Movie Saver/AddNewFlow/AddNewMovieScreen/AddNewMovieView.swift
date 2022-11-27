@@ -79,7 +79,7 @@ final class AddNewMovieView: UIViewController {
         descriptionTextView.delegate = self
         textViewDidEndEditing(descriptionTextView)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard (_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
     }
 
