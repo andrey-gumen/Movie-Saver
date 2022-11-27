@@ -11,7 +11,7 @@ final class ChangeRatingValueView: UIViewController {
     private let titleLabel = UILabel()
     private let numberPicker = UIPickerView()
     private let saveButton = UIButton()
-    private let pickerValues: [Float] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    private let pickerValues = Array<Float>(stride(from: 0, through: 10, by: 0.1))
 
     // MARK: - Subjects
     private var cancellables: Set<AnyCancellable> = []
@@ -50,7 +50,8 @@ final class ChangeRatingValueView: UIViewController {
 
         numberPicker.delegate = self
         numberPicker.dataSource = self
-
+        numberPicker.selectRow(pickerValue2row(viewModel.valueSubject.value), inComponent: 0, animated: false)
+        
         saveButton.setTitle("Save", for: .normal)
         saveButton.setTitleColor(.systemBlue, for: .normal)
         saveButton.setTitleColor(.systemGray, for: .disabled)
@@ -71,6 +72,7 @@ final class ChangeRatingValueView: UIViewController {
         numberPicker.pin
             .below(of: titleLabel, offset: 42)
             .centerX(in: view)
+            .size(to: CGSize(width: 374, height: 131))
 
         saveButton.pin
             .below(of: numberPicker, offset: 42)
@@ -82,6 +84,14 @@ final class ChangeRatingValueView: UIViewController {
     @objc private func saveButtonDidTapped() {
         viewModel.valueSubject.send(valueSubject.value)
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func pickerValue2row(_ value: Float?) -> Int {
+        if let value {
+            return pickerValues.firstIndex(of: value) ?? pickerValues.count / 2
+        }
+        
+        return pickerValues.count / 2
     }
 }
 
