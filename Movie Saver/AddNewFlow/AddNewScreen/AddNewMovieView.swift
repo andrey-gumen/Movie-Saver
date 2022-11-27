@@ -21,7 +21,7 @@ final class AddNewMovieView: UIViewController {
     private let youtubeLinkView = ChangableAttributeView<String>(title: "Youtube Link")
     
     private let descriptionTitleLabel = UILabel()
-    private let descriptionTextField = UITextView()
+    private let descriptionTextView = UITextView()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -59,7 +59,7 @@ final class AddNewMovieView: UIViewController {
         changablesContainer.addSubview(youtubeLinkView)
         
         view.addSubview(descriptionTitleLabel)
-        view.addSubview(descriptionTextField)
+        view.addSubview(descriptionTextView)
     }
 
     private func configureUI() {
@@ -74,9 +74,13 @@ final class AddNewMovieView: UIViewController {
         descriptionTitleLabel.textAlignment = .center
         descriptionTitleLabel.font = UIFont(name: "Manrope-Medium", size: 18)
         
-        descriptionTextField.font = UIFont(name: "Manrope-Regular", size: 14)
-        descriptionTextField.textAlignment = .left
-        descriptionTextField.text = "With Spider-Man's identity now revealed, Peter asks Doctor Strange..."
+        descriptionTextView.font = UIFont(name: "Manrope-Regular", size: 14)
+        descriptionTextView.textAlignment = .left
+        descriptionTextView.delegate = self
+        textViewDidEndEditing(descriptionTextView)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard (_:)))
+        view.addGestureRecognizer(tapGesture)
     }
 
     private func configureConstraints() {
@@ -121,7 +125,7 @@ final class AddNewMovieView: UIViewController {
             .centerX(in: view)
             .size(to: CGSize(width: 311, height: 26))
 
-        descriptionTextField.pin
+        descriptionTextView.pin
             .below(of: descriptionTitleLabel, offset: 11)
             .centerX(in: view)
             .size(to: CGSize(width: 311, height: 145))
@@ -172,4 +176,28 @@ final class AddNewMovieView: UIViewController {
     @objc private func saveButtonDidTapped() {
         print(#function)
     }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        descriptionTextView.resignFirstResponder()
+    }
+}
+
+// MARK: TextView extension
+
+extension AddNewMovieView: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Description"
+            textView.textColor = .lightGray
+        }
+    }
+    
 }
