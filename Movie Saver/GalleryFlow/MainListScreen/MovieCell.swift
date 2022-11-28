@@ -58,8 +58,9 @@ final class MovieCell: UITableViewCell {
         paddingView.layer.cornerRadius = 8
         paddingView.dropShadow()
 
-        previewImageView.contentMode = .scaleAspectFit
+        previewImageView.contentMode = .scaleAspectFill
         previewImageView.image = MovieCell.defaultPreview
+        previewImageView.clipsToBounds = true
 
         titleLabel.font = UIFont(name: "Manrope-Medium", size: 18)
         titleLabel.textAlignment = .center

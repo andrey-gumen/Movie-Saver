@@ -114,7 +114,7 @@ extension MainListView: UITableViewDelegate, UITableViewDataSource {
         ) as! MovieCell
         
         let movie = viewModel.outputs.movies[indexPath.row]
-        cell.updateView(title: movie.title, rating: movie.rating, preview: nil)
+        cell.updateView(title: movie.title, rating: movie.rating, preview: movie.poster)
         return cell
     }
     
