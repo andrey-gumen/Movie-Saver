@@ -26,7 +26,7 @@ final class MainListViewModel {
     struct Outputs {
         var movies: [Movie] = []
         let showAddNewFlowSubject = PassthroughSubject<Void, Never>()
-        let showDetailsScreenSubject = PassthroughSubject<Void, Never>()
+        let showDetailsScreenSubject = PassthroughSubject<Movie?, Never>()
         let updateTableSubject = PassthroughSubject<Void, Never>()
     }
     

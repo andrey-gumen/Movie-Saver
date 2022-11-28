@@ -11,6 +11,7 @@ final class MainListView: UIViewController {
     // MARK: Private
     private let titleLabel = UILabel()
     private let movieTableView = UITableView()
+    
     private var cancellables: Set<AnyCancellable> = []
 
     // MARK: - Lifecycle
@@ -50,7 +51,6 @@ final class MainListView: UIViewController {
         titleLabel.font = UIFont(name: "SFProDisplay-Bold", size: 34)
         
         movieTableView.backgroundColor = ColorScheme.tableViewBackground
-        movieTableView.allowsSelection = false
         movieTableView.separatorStyle = .none
         movieTableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.reuseIdentifier)
         
@@ -122,4 +122,8 @@ extension MainListView: UITableViewDelegate, UITableViewDataSource {
         return MovieCell.cellHeight
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = viewModel.outputs.movies[indexPath.row]
+        viewModel.outputs.showDetailsScreenSubject.send(movie)
+    }
 }
