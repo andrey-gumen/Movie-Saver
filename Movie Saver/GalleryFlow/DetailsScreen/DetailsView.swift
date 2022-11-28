@@ -148,9 +148,9 @@ final class DetailsView: UIViewController {
             NSAttributedString.Key.font: UIFont(name: "Manrope-Light", size: 14)!
         ]
 
-        let firstString = NSMutableAttributedString(string: movie?.rating != nil ? "  \(movie!.rating!)" : "-", attributes: firstAttributes)
+        let firstString = NSMutableAttributedString(string: movie?.rating != nil ? String(format: " %.1f", movie!.rating!) : " -", attributes: firstAttributes)
         let secondString = NSAttributedString(string: "/10", attributes: secondAttributes)
-        let thirdString = NSAttributedString(string: movie?.releaseDate != nil ? " \(movie!.releaseDate!)" : "-", attributes: thirdAttributes)
+        let thirdString = NSAttributedString(string: movie?.releaseDate?.getFormattedDate(format: " yyyy") ?? " -", attributes: thirdAttributes)
         
         let result = NSMutableAttributedString(attachment: attachment)
         result.append(firstString)

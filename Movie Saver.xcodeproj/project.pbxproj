@@ -46,6 +46,8 @@
 		A1FC5E3929341E1100AD23F5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3829341E1100AD23F5 /* String+Extension.swift */; };
 		A1FC5E3D2934206500AD23F5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3B2934206500AD23F5 /* CoreDataManager.swift */; };
 		A1FC5E3E2934206500AD23F5 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3C2934206500AD23F5 /* Movie.swift */; };
+		A1FC5E4029350F9A00AD23F5 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3F29350F9A00AD23F5 /* FontsManager.swift */; };
+		A1FC5E422935120D00AD23F5 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E412935120D00AD23F5 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		A1FC5E3829341E1100AD23F5 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		A1FC5E3B2934206500AD23F5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A1FC5E3C2934206500AD23F5 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		A1FC5E3F29350F9A00AD23F5 /* FontsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
+		A1FC5E412935120D00AD23F5 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 				A191031A292AAA5000F57012 /* Movie_Saver.xcdatamodeld */,
 				A19103BA292C46EE00F57012 /* View+Extension.swift */,
 				A1FC5E3829341E1100AD23F5 /* String+Extension.swift */,
+				A1FC5E412935120D00AD23F5 /* Date+Extension.swift */,
 			);
 			path = "Movie Saver";
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			children = (
 				A1910369292AEBCD00F57012 /* SFProDisplay */,
 				A1910368292AEBC000F57012 /* Manrope */,
+				A1FC5E3F29350F9A00AD23F5 /* FontsManager.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -370,6 +376,7 @@
 				A18800EB292EBF2200469616 /* SceneCoordinator.swift in Sources */,
 				A1FC5E302933B94100AD23F5 /* ChangeDateValueView.swift in Sources */,
 				A18800F7292FAF1500469616 /* ChangeStringValueViewModel.swift in Sources */,
+				A1FC5E422935120D00AD23F5 /* Date+Extension.swift in Sources */,
 				A1910355292ABE4600F57012 /* ColorScheme.swift in Sources */,
 				A1910342292AB0C100F57012 /* DetailsViewModel.swift in Sources */,
 				A18800E9292EBDFE00469616 /* AddNewCoordinator.swift in Sources */,
@@ -380,6 +387,7 @@
 				A18800E8292EBDFE00469616 /* AddNewMovieViewModel.swift in Sources */,
 				A19103BB292C46EE00F57012 /* View+Extension.swift in Sources */,
 				A1910312292AAA5000F57012 /* AppDelegate.swift in Sources */,
+				A1FC5E4029350F9A00AD23F5 /* FontsManager.swift in Sources */,
 				A1910314292AAA5000F57012 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
