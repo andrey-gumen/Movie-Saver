@@ -11,12 +11,15 @@ final class DetailsView: UIViewController {
     // MARK: Private
     private let posterImageView = UIImageView()
 
-    private let infoContainer = UIView()
+    private let infocontainer = UIView()
+    private let infoPadding = UIView()
 
     private let titleLabel = UILabel()
     private let ratingLabel = UILabel()
     private let descriptionTextView = UITextView()
+    
     private let trailerView = WKWebView()
+    private var webviewHeightConstraint: NSLayoutConstraint?
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -39,7 +42,7 @@ final class DetailsView: UIViewController {
         ratingLabel.attributedText = formRatingInformation(movie)
         descriptionTextView.text = movie?.notes ?? ""
         
-        trailerView.isHidden = movie?.youtubeLink == nil
+        //trailerView.isHidden = movie?.youtubeLink == nil
         if let url = movie?.youtubeLink {
             let trailerRequest = URLRequest(url: url)
             trailerView.load(trailerRequest)
@@ -50,11 +53,12 @@ final class DetailsView: UIViewController {
     private func addSubview() {
         view.addSubview(posterImageView)
 
-        view.addSubview(infoContainer)
-        infoContainer.addSubview(titleLabel)
-        infoContainer.addSubview(ratingLabel)
-        infoContainer.addSubview(descriptionTextView)
-        infoContainer.addSubview(trailerView)
+        view.addSubview(infocontainer)
+        infocontainer.addSubview(infoPadding)
+        infoPadding.addSubview(titleLabel)
+        infoPadding.addSubview(ratingLabel)
+        infoPadding.addSubview(descriptionTextView)
+        infoPadding.addSubview(trailerView)
     }
 
     private func configureUI() {
@@ -66,8 +70,8 @@ final class DetailsView: UIViewController {
         titleLabel.font = UIFont(name: "Manrope-Bold", size: 24)
         titleLabel.numberOfLines = 2
         
-        infoContainer.backgroundColor = ColorScheme.viewBackground
-        infoContainer.layer.cornerRadius = 16
+        infocontainer.backgroundColor = ColorScheme.viewBackground
+        infocontainer.layer.cornerRadius = 16
         
         ratingLabel.textAlignment = .left
         ratingLabel.font = UIFont(name: "Manrope-Bold", size: 14)
@@ -77,6 +81,7 @@ final class DetailsView: UIViewController {
         descriptionTextView.isEditable = false
         
         trailerView.contentMode = .center
+        trailerView.navigationDelegate = self
     }
 
     private func configureConstraints() {
@@ -86,37 +91,44 @@ final class DetailsView: UIViewController {
             .trailing(to: view)
             .height(to: 286)
         
-        infoContainer.pin
+        infocontainer.pin
             .below(of: posterImageView, offset: -29)
-            .centerX(in: view)
+            .leading(to: view)
+            .trailing(to: view)
             .bottom(to: view)
+        
+        infoPadding.pin
+            .top(to: infocontainer)
+            .centerX(in: infocontainer)
+            .bottom(to: infocontainer)
             .width(to: 375)
         
         titleLabel.pin
-            .top(to: infoContainer)
-            .leading(to: infoContainer, offset: 19)
-            .trailing(to: infoContainer, offset: -19)
+            .top(to: infoPadding)
+            .leading(to: infoPadding, offset: 19)
+            .trailing(to: infoPadding, offset: -19)
             .height(to: 65)
         
         ratingLabel.pin
             .below(of: titleLabel, offset: 14)
-            .leading(to: infoContainer, offset: 19)
-            .trailing(to: infoContainer, offset: -19)
+            .leading(to: infoPadding, offset: 19)
+            .trailing(to: infoPadding, offset: -19)
             .height(to: 24)
         
         descriptionTextView.pin
             .below(of: ratingLabel, offset: 13)
-            .leading(to: infoContainer, offset: 19)
-            .trailing(to: infoContainer, offset: -19)
+            .leading(to: infoPadding, offset: 19)
+            .trailing(to: infoPadding, offset: -19)
             .height(to: 138)
 
-        trailerView.pin
-            .bottom(to: descriptionTextView, offset: 24)
-            .leading(to: infoContainer, offset: 19)
-            .trailing(to: infoContainer, offset: -19)
-            .height(to: 196)
+        trailerView.translatesAutoresizingMaskIntoConstraints = false
+        trailerView.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 24).isActive = true
+        trailerView.leadingAnchor.constraint(equalTo: infoPadding.leadingAnchor, constant: 19).isActive = true
+        trailerView.trailingAnchor.constraint(equalTo: infoPadding.trailingAnchor, constant: -19).isActive = true
+        
+        webviewHeightConstraint = trailerView.heightAnchor.constraint(equalToConstant: 196)
+        webviewHeightConstraint?.isActive = true
     }
-
 
     // MARK: - Helpers
     private func formRatingInformation(_ movie: Movie?) -> NSAttributedString {
@@ -145,5 +157,13 @@ final class DetailsView: UIViewController {
         result.append(secondString)
         result.append(thirdString)
         return result
+    }
+}
+
+extension DetailsView: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.webviewHeightConstraint?.constant = webView.scrollView.contentSize.height
+        }
     }
 }
