@@ -15,6 +15,7 @@ final class GalleryCoordinator {
         let viewModel = MainListViewModel()
         let view = MainListView()
         view.viewModel = viewModel
+        
         rootNavigationController.pushViewController(view, animated: true)
         
         viewModel.outputs.showAddNewFlowSubject
@@ -22,6 +23,20 @@ final class GalleryCoordinator {
                 self?.showAddNewFlowSubject.send()
             }
             .store(in: &cancellables)
+        
+        viewModel.outputs.showDetailsScreenSubject
+            .sink { [weak self] movie in
+                self?.showDetailsScreen(movie: movie)
+            }
+            .store(in: &cancellables)
+    }
+    
+    func showDetailsScreen(movie: Movie?) {
+        let viewModel = DetailsViewModel(movie: movie)
+        let view = DetailsView()
+        view.viewModel = viewModel
+        
+        rootNavigationController.pushViewController(view, animated: true)
     }
     
 }
