@@ -82,7 +82,7 @@ final class MainListView: UIViewController {
 
     // MARK: - Helpers
     @objc private func addButtonDidTapped() {
-        viewModel.showAddNewFlowSubject.send()
+        viewModel.outputs.showAddNewFlowSubject.send()
     }
 }
 

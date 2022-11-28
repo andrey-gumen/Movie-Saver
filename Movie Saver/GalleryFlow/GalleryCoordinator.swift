@@ -17,7 +17,7 @@ final class GalleryCoordinator {
         view.viewModel = viewModel
         rootNavigationController.pushViewController(view, animated: true)
         
-        viewModel.showAddNewFlowSubject
+        viewModel.outputs.showAddNewFlowSubject
             .sink { [weak self] in
                 self?.showAddNewFlowSubject.send()
             }
