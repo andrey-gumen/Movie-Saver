@@ -223,7 +223,7 @@ final class AddNewMovieView: UIViewController {
             notes: descriptionTextView.text
         )
         outputs.saveMovieSubject.send(movie)
-        outputs.movedFromParentSubject.send()
+        navigationController?.popViewController(animated: true)
     }
 
     @objc private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
