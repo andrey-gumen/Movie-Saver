@@ -32,7 +32,11 @@ final class MovieCell: UITableViewCell {
     }
 
     // MARK: - API
-    func updateView(title: String?, raiting: String?, preview: UIImage?) {}
+    func updateView(title: String?, rating: Float?, preview: UIImage?) {
+        titleLabel.text = title
+        ratingLabel.text = String(format: "%.1f / 10", rating ?? 0)
+        previewImageView.image = preview
+    }
 
     // MARK: - Setups
     private func addSubview() {

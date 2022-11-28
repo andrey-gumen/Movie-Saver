@@ -11,6 +11,7 @@ final class MainListView: UIViewController {
     // MARK: Private
     private let titleLabel = UILabel()
     private let movieTableView = UITableView()
+    private var cancellables: Set<AnyCancellable> = []
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -19,11 +20,13 @@ final class MainListView: UIViewController {
         addSubview()
         configureUI()
         configureConstraints()
+        configureSubjects()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        reqeastData()
         configureToolbar()
     }
 
@@ -79,7 +82,18 @@ final class MainListView: UIViewController {
         navigationItem.setRightBarButton(nil, animated: false)
         navigationController?.isToolbarHidden = true
     }
-
+    
+    private func reqeastData() {
+        viewModel.inputs.reloadDataSubject.send()
+    }
+    
+    // MARK: Subjects
+    private func configureSubjects() {
+        viewModel.outputs.updateTableSubject
+            .sink { [weak self] in self?.movieTableView.reloadData() }
+            .store(in: &cancellables)
+    }
+    
     // MARK: - Helpers
     @objc private func addButtonDidTapped() {
         viewModel.outputs.showAddNewFlowSubject.send()
@@ -90,7 +104,7 @@ final class MainListView: UIViewController {
 
 extension MainListView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        viewModel.outputs.movies.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,7 +112,9 @@ extension MainListView: UITableViewDelegate, UITableViewDataSource {
             withIdentifier: MovieCell.reuseIdentifier,
             for: indexPath
         ) as! MovieCell
-        cell.updateView(title: "Test", raiting: "10", preview: nil)
+        
+        let movie = viewModel.outputs.movies[indexPath.row]
+        cell.updateView(title: movie.title, rating: movie.rating, preview: nil)
         return cell
     }
     

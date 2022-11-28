@@ -1,4 +1,5 @@
 import Combine
+import Foundation
 
 final class MainListViewModel {
     
@@ -14,17 +15,16 @@ final class MainListViewModel {
     
     private func reloadData() {
         outputs.movies = CoreDataManager.instance.getMovies()
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.outputs.updateTableSubject.send()
+        }
     }
     
     // MARK: Inputs / Outputs types
     
     struct Outputs {
-        var movies: [Movie] = [] {
-            didSet {
-                updateTableSubject.send()
-            }
-        }
-        
+        var movies: [Movie] = []
         let showAddNewFlowSubject = PassthroughSubject<Void, Never>()
         let showDetailsScreenSubject = PassthroughSubject<Void, Never>()
         let updateTableSubject = PassthroughSubject<Void, Never>()
