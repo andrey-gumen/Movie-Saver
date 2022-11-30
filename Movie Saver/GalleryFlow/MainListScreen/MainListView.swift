@@ -47,7 +47,7 @@ final class MainListView: UIViewController {
     private func configureUI() {
         view.backgroundColor = ColorScheme.tableViewBackground
 
-        titleLabel.text = "My Moview List"
+        titleLabel.text = "My Movie List"
         titleLabel.font = UIFont(name: "SFProDisplay-Bold", size: 34)
         
         movieTableView.backgroundColor = ColorScheme.tableViewBackground
