@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "easyautolayout",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Ligr/EasyAutoLayout",
+      "state" : {
+        "branch" : "main",
+        "revision" : "52ff53cdc5c323855342969ae03ebe48c430f6c5"
+      }
+    }
+  ],
+  "version" : 2
+}

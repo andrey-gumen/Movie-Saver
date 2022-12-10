@@ -7,25 +7,92 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A18800E7292EBDFE00469616 /* AddNewMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800E4292EBDFE00469616 /* AddNewMovieView.swift */; };
+		A18800E8292EBDFE00469616 /* AddNewMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800E5292EBDFE00469616 /* AddNewMovieViewModel.swift */; };
+		A18800E9292EBDFE00469616 /* AddNewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800E6292EBDFE00469616 /* AddNewCoordinator.swift */; };
+		A18800EB292EBF2200469616 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800EA292EBF2200469616 /* SceneCoordinator.swift */; };
+		A18800F0292EDF6300469616 /* ChangableAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800EF292EDF6300469616 /* ChangableAttributeView.swift */; };
+		A18800F2292F9DC900469616 /* PreviewPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800F1292F9DC900469616 /* PreviewPicker.swift */; };
+		A18800F6292FAF1500469616 /* ChangeStringValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800F4292FAF1500469616 /* ChangeStringValueView.swift */; };
+		A18800F7292FAF1500469616 /* ChangeStringValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18800F5292FAF1500469616 /* ChangeStringValueViewModel.swift */; };
 		A1910312292AAA5000F57012 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1910311292AAA5000F57012 /* AppDelegate.swift */; };
 		A1910314292AAA5000F57012 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1910313292AAA5000F57012 /* SceneDelegate.swift */; };
-		A1910316292AAA5000F57012 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1910315292AAA5000F57012 /* ViewController.swift */; };
-		A1910319292AAA5000F57012 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1910317292AAA5000F57012 /* Main.storyboard */; };
 		A191031C292AAA5000F57012 /* Movie_Saver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A191031A292AAA5000F57012 /* Movie_Saver.xcdatamodeld */; };
 		A191031E292AAA5000F57012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A191031D292AAA5000F57012 /* Assets.xcassets */; };
 		A1910321292AAA5000F57012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A191031F292AAA5000F57012 /* LaunchScreen.storyboard */; };
+		A1910342292AB0C100F57012 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1910333292AB0C100F57012 /* DetailsViewModel.swift */; };
+		A1910343292AB0C100F57012 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1910334292AB0C100F57012 /* DetailsView.swift */; };
+		A191034A292AB0C100F57012 /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191033D292AB0C100F57012 /* MainListView.swift */; };
+		A191034B292AB0C100F57012 /* MainListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191033E292AB0C100F57012 /* MainListViewModel.swift */; };
+		A1910350292AB1C600F57012 /* GalleryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191034F292AB1C600F57012 /* GalleryCoordinator.swift */; };
+		A1910353292AB9F600F57012 /* EasyAutolayout in Frameworks */ = {isa = PBXBuildFile; productRef = A1910352292AB9F600F57012 /* EasyAutolayout */; };
+		A1910355292ABE4600F57012 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1910354292ABE4600F57012 /* ColorScheme.swift */; };
+		A1910360292AE93200F57012 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1910358292AE93200F57012 /* Manrope-Medium.ttf */; };
+		A1910361292AE93200F57012 /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1910359292AE93200F57012 /* Manrope-SemiBold.ttf */; };
+		A1910362292AE93200F57012 /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A191035A292AE93200F57012 /* Manrope-ExtraBold.ttf */; };
+		A1910363292AE93200F57012 /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A191035B292AE93200F57012 /* Manrope-Regular.ttf */; };
+		A1910364292AE93200F57012 /* Manrope-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A191035C292AE93200F57012 /* Manrope-ExtraLight.ttf */; };
+		A1910365292AE93200F57012 /* Manrope-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A191035D292AE93200F57012 /* Manrope-Light.ttf */; };
+		A1910366292AE93200F57012 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A191035E292AE93200F57012 /* Manrope-Bold.ttf */; };
+		A1910367292AE93200F57012 /* Manrope-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A191035F292AE93200F57012 /* Manrope-VariableFont_wght.ttf */; };
+		A191036B292AEC4A00F57012 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A191036A292AEBEC00F57012 /* SFProDisplay-Bold.ttf */; };
+		A191036E292AEDC200F57012 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191036D292AEDC200F57012 /* MovieCell.swift */; };
+		A19103BB292C46EE00F57012 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19103BA292C46EE00F57012 /* View+Extension.swift */; };
+		A1FC5E2F2933B94100AD23F5 /* ChangeDateValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E2D2933B94100AD23F5 /* ChangeDateValueViewModel.swift */; };
+		A1FC5E302933B94100AD23F5 /* ChangeDateValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E2E2933B94100AD23F5 /* ChangeDateValueView.swift */; };
+		A1FC5E322933E66D00AD23F5 /* CustomFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E312933E66D00AD23F5 /* CustomFormatters.swift */; };
+		A1FC5E362933E87200AD23F5 /* ChangeRatingValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E342933E87200AD23F5 /* ChangeRatingValueViewModel.swift */; };
+		A1FC5E372933E87200AD23F5 /* ChangeRatingValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E352933E87200AD23F5 /* ChangeRatingValueView.swift */; };
+		A1FC5E3929341E1100AD23F5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3829341E1100AD23F5 /* String+Extension.swift */; };
+		A1FC5E3D2934206500AD23F5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3B2934206500AD23F5 /* CoreDataManager.swift */; };
+		A1FC5E3E2934206500AD23F5 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3C2934206500AD23F5 /* Movie.swift */; };
+		A1FC5E4029350F9A00AD23F5 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E3F29350F9A00AD23F5 /* FontsManager.swift */; };
+		A1FC5E422935120D00AD23F5 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC5E412935120D00AD23F5 /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A18800E4292EBDFE00469616 /* AddNewMovieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewMovieView.swift; sourceTree = "<group>"; };
+		A18800E5292EBDFE00469616 /* AddNewMovieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewMovieViewModel.swift; sourceTree = "<group>"; };
+		A18800E6292EBDFE00469616 /* AddNewCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewCoordinator.swift; sourceTree = "<group>"; };
+		A18800EA292EBF2200469616 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
+		A18800EF292EDF6300469616 /* ChangableAttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangableAttributeView.swift; sourceTree = "<group>"; };
+		A18800F1292F9DC900469616 /* PreviewPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPicker.swift; sourceTree = "<group>"; };
+		A18800F4292FAF1500469616 /* ChangeStringValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeStringValueView.swift; sourceTree = "<group>"; };
+		A18800F5292FAF1500469616 /* ChangeStringValueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeStringValueViewModel.swift; sourceTree = "<group>"; };
 		A191030E292AAA5000F57012 /* Movie Saver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Saver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1910311292AAA5000F57012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1910313292AAA5000F57012 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A1910315292AAA5000F57012 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A1910318292AAA5000F57012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A191031B292AAA5000F57012 /* Movie_Saver.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Movie_Saver.xcdatamodel; sourceTree = "<group>"; };
 		A191031D292AAA5000F57012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1910320292AAA5000F57012 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1910322292AAA5000F57012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1910333292AB0C100F57012 /* DetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		A1910334292AB0C100F57012 /* DetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		A191033D292AB0C100F57012 /* MainListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
+		A191033E292AB0C100F57012 /* MainListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainListViewModel.swift; sourceTree = "<group>"; };
+		A191034F292AB1C600F57012 /* GalleryCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryCoordinator.swift; sourceTree = "<group>"; };
+		A1910354292ABE4600F57012 /* ColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
+		A1910358292AE93200F57012 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
+		A1910359292AE93200F57012 /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-SemiBold.ttf"; sourceTree = "<group>"; };
+		A191035A292AE93200F57012 /* Manrope-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A191035B292AE93200F57012 /* Manrope-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Regular.ttf"; sourceTree = "<group>"; };
+		A191035C292AE93200F57012 /* Manrope-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraLight.ttf"; sourceTree = "<group>"; };
+		A191035D292AE93200F57012 /* Manrope-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Light.ttf"; sourceTree = "<group>"; };
+		A191035E292AE93200F57012 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
+		A191035F292AE93200F57012 /* Manrope-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		A191036A292AEBEC00F57012 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		A191036D292AEDC200F57012 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		A19103BA292C46EE00F57012 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		A1FC5E2D2933B94100AD23F5 /* ChangeDateValueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateValueViewModel.swift; sourceTree = "<group>"; };
+		A1FC5E2E2933B94100AD23F5 /* ChangeDateValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDateValueView.swift; sourceTree = "<group>"; };
+		A1FC5E312933E66D00AD23F5 /* CustomFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFormatters.swift; sourceTree = "<group>"; };
+		A1FC5E342933E87200AD23F5 /* ChangeRatingValueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeRatingValueViewModel.swift; sourceTree = "<group>"; };
+		A1FC5E352933E87200AD23F5 /* ChangeRatingValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeRatingValueView.swift; sourceTree = "<group>"; };
+		A1FC5E3829341E1100AD23F5 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		A1FC5E3B2934206500AD23F5 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A1FC5E3C2934206500AD23F5 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		A1FC5E3F29350F9A00AD23F5 /* FontsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
+		A1FC5E412935120D00AD23F5 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +100,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1910353292AB9F600F57012 /* EasyAutolayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A18800E2292EBDFE00469616 /* AddNewFlow */ = {
+			isa = PBXGroup;
+			children = (
+				A18800E6292EBDFE00469616 /* AddNewCoordinator.swift */,
+				A18800E3292EBDFE00469616 /* AddNewMovieScreen */,
+				A1FC5E2C2933B94100AD23F5 /* ChangeDateValueScreen */,
+				A1FC5E332933E87200AD23F5 /* ChangeRatingValueScreen */,
+				A18800F3292FAF1500469616 /* ChangeStringValueScreen */,
+			);
+			path = AddNewFlow;
+			sourceTree = "<group>";
+		};
+		A18800E3292EBDFE00469616 /* AddNewMovieScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A18800E4292EBDFE00469616 /* AddNewMovieView.swift */,
+				A18800E5292EBDFE00469616 /* AddNewMovieViewModel.swift */,
+				A18800EF292EDF6300469616 /* ChangableAttributeView.swift */,
+				A18800F1292F9DC900469616 /* PreviewPicker.swift */,
+				A1FC5E312933E66D00AD23F5 /* CustomFormatters.swift */,
+			);
+			path = AddNewMovieScreen;
+			sourceTree = "<group>";
+		};
+		A18800F3292FAF1500469616 /* ChangeStringValueScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A18800F4292FAF1500469616 /* ChangeStringValueView.swift */,
+				A18800F5292FAF1500469616 /* ChangeStringValueViewModel.swift */,
+			);
+			path = ChangeStringValueScreen;
+			sourceTree = "<group>";
+		};
 		A1910305292AAA4F00F57012 = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +159,120 @@
 		A1910310292AAA5000F57012 /* Movie Saver */ = {
 			isa = PBXGroup;
 			children = (
+				A1FC5E3A2934201F00AD23F5 /* BD */,
+				A1910356292AE91500F57012 /* Fonts */,
+				A18800E2292EBDFE00469616 /* AddNewFlow */,
+				A1910331292AAFDB00F57012 /* GalleryFlow */,
+				A1910354292ABE4600F57012 /* ColorScheme.swift */,
 				A1910311292AAA5000F57012 /* AppDelegate.swift */,
+				A18800EA292EBF2200469616 /* SceneCoordinator.swift */,
 				A1910313292AAA5000F57012 /* SceneDelegate.swift */,
-				A1910315292AAA5000F57012 /* ViewController.swift */,
-				A1910317292AAA5000F57012 /* Main.storyboard */,
 				A191031D292AAA5000F57012 /* Assets.xcassets */,
 				A191031F292AAA5000F57012 /* LaunchScreen.storyboard */,
 				A1910322292AAA5000F57012 /* Info.plist */,
 				A191031A292AAA5000F57012 /* Movie_Saver.xcdatamodeld */,
+				A19103BA292C46EE00F57012 /* View+Extension.swift */,
+				A1FC5E3829341E1100AD23F5 /* String+Extension.swift */,
+				A1FC5E412935120D00AD23F5 /* Date+Extension.swift */,
 			);
 			path = "Movie Saver";
+			sourceTree = "<group>";
+		};
+		A1910331292AAFDB00F57012 /* GalleryFlow */ = {
+			isa = PBXGroup;
+			children = (
+				A191034F292AB1C600F57012 /* GalleryCoordinator.swift */,
+				A191033C292AB0C100F57012 /* MainListScreen */,
+				A1910332292AB0C100F57012 /* DetailsScreen */,
+			);
+			path = GalleryFlow;
+			sourceTree = "<group>";
+		};
+		A1910332292AB0C100F57012 /* DetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A1910334292AB0C100F57012 /* DetailsView.swift */,
+				A1910333292AB0C100F57012 /* DetailsViewModel.swift */,
+			);
+			path = DetailsScreen;
+			sourceTree = "<group>";
+		};
+		A191033C292AB0C100F57012 /* MainListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A191033D292AB0C100F57012 /* MainListView.swift */,
+				A191033E292AB0C100F57012 /* MainListViewModel.swift */,
+				A191036D292AEDC200F57012 /* MovieCell.swift */,
+			);
+			path = MainListScreen;
+			sourceTree = "<group>";
+		};
+		A1910356292AE91500F57012 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A1910369292AEBCD00F57012 /* SFProDisplay */,
+				A1910368292AEBC000F57012 /* Manrope */,
+				A1FC5E3F29350F9A00AD23F5 /* FontsManager.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A1910357292AE93200F57012 /* static */ = {
+			isa = PBXGroup;
+			children = (
+				A1910358292AE93200F57012 /* Manrope-Medium.ttf */,
+				A1910359292AE93200F57012 /* Manrope-SemiBold.ttf */,
+				A191035A292AE93200F57012 /* Manrope-ExtraBold.ttf */,
+				A191035B292AE93200F57012 /* Manrope-Regular.ttf */,
+				A191035C292AE93200F57012 /* Manrope-ExtraLight.ttf */,
+				A191035D292AE93200F57012 /* Manrope-Light.ttf */,
+				A191035E292AE93200F57012 /* Manrope-Bold.ttf */,
+			);
+			path = static;
+			sourceTree = "<group>";
+		};
+		A1910368292AEBC000F57012 /* Manrope */ = {
+			isa = PBXGroup;
+			children = (
+				A191035F292AE93200F57012 /* Manrope-VariableFont_wght.ttf */,
+				A1910357292AE93200F57012 /* static */,
+			);
+			path = Manrope;
+			sourceTree = "<group>";
+		};
+		A1910369292AEBCD00F57012 /* SFProDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				A191036A292AEBEC00F57012 /* SFProDisplay-Bold.ttf */,
+			);
+			path = SFProDisplay;
+			sourceTree = "<group>";
+		};
+		A1FC5E2C2933B94100AD23F5 /* ChangeDateValueScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A1FC5E2D2933B94100AD23F5 /* ChangeDateValueViewModel.swift */,
+				A1FC5E2E2933B94100AD23F5 /* ChangeDateValueView.swift */,
+			);
+			path = ChangeDateValueScreen;
+			sourceTree = "<group>";
+		};
+		A1FC5E332933E87200AD23F5 /* ChangeRatingValueScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A1FC5E342933E87200AD23F5 /* ChangeRatingValueViewModel.swift */,
+				A1FC5E352933E87200AD23F5 /* ChangeRatingValueView.swift */,
+			);
+			path = ChangeRatingValueScreen;
+			sourceTree = "<group>";
+		};
+		A1FC5E3A2934201F00AD23F5 /* BD */ = {
+			isa = PBXGroup;
+			children = (
+				A1FC5E3B2934206500AD23F5 /* CoreDataManager.swift */,
+				A1FC5E3C2934206500AD23F5 /* Movie.swift */,
+			);
+			path = BD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +291,9 @@
 			dependencies = (
 			);
 			name = "Movie Saver";
+			packageProductDependencies = (
+				A1910352292AB9F600F57012 /* EasyAutolayout */,
+			);
 			productName = "Movie Saver";
 			productReference = A191030E292AAA5000F57012 /* Movie Saver.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +322,9 @@
 				Base,
 			);
 			mainGroup = A1910305292AAA4F00F57012;
+			packageReferences = (
+				A1910351292AB9F600F57012 /* XCRemoteSwiftPackageReference "EasyAutoLayout" */,
+			);
 			productRefGroup = A191030F292AAA5000F57012 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -128,9 +339,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1910367292AE93200F57012 /* Manrope-VariableFont_wght.ttf in Resources */,
+				A1910362292AE93200F57012 /* Manrope-ExtraBold.ttf in Resources */,
+				A1910360292AE93200F57012 /* Manrope-Medium.ttf in Resources */,
+				A1910363292AE93200F57012 /* Manrope-Regular.ttf in Resources */,
 				A1910321292AAA5000F57012 /* LaunchScreen.storyboard in Resources */,
+				A1910365292AE93200F57012 /* Manrope-Light.ttf in Resources */,
+				A1910361292AE93200F57012 /* Manrope-SemiBold.ttf in Resources */,
+				A1910364292AE93200F57012 /* Manrope-ExtraLight.ttf in Resources */,
+				A191036B292AEC4A00F57012 /* SFProDisplay-Bold.ttf in Resources */,
+				A1910366292AE93200F57012 /* Manrope-Bold.ttf in Resources */,
 				A191031E292AAA5000F57012 /* Assets.xcassets in Resources */,
-				A1910319292AAA5000F57012 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +360,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1910343292AB0C100F57012 /* DetailsView.swift in Sources */,
+				A18800F2292F9DC900469616 /* PreviewPicker.swift in Sources */,
+				A1FC5E362933E87200AD23F5 /* ChangeRatingValueViewModel.swift in Sources */,
 				A191031C292AAA5000F57012 /* Movie_Saver.xcdatamodeld in Sources */,
-				A1910316292AAA5000F57012 /* ViewController.swift in Sources */,
+				A191036E292AEDC200F57012 /* MovieCell.swift in Sources */,
+				A191034B292AB0C100F57012 /* MainListViewModel.swift in Sources */,
+				A1FC5E322933E66D00AD23F5 /* CustomFormatters.swift in Sources */,
+				A191034A292AB0C100F57012 /* MainListView.swift in Sources */,
+				A1FC5E3929341E1100AD23F5 /* String+Extension.swift in Sources */,
+				A1FC5E2F2933B94100AD23F5 /* ChangeDateValueViewModel.swift in Sources */,
+				A1FC5E372933E87200AD23F5 /* ChangeRatingValueView.swift in Sources */,
+				A1FC5E3E2934206500AD23F5 /* Movie.swift in Sources */,
+				A1910350292AB1C600F57012 /* GalleryCoordinator.swift in Sources */,
+				A18800EB292EBF2200469616 /* SceneCoordinator.swift in Sources */,
+				A1FC5E302933B94100AD23F5 /* ChangeDateValueView.swift in Sources */,
+				A18800F7292FAF1500469616 /* ChangeStringValueViewModel.swift in Sources */,
+				A1FC5E422935120D00AD23F5 /* Date+Extension.swift in Sources */,
+				A1910355292ABE4600F57012 /* ColorScheme.swift in Sources */,
+				A1910342292AB0C100F57012 /* DetailsViewModel.swift in Sources */,
+				A18800E9292EBDFE00469616 /* AddNewCoordinator.swift in Sources */,
+				A18800E7292EBDFE00469616 /* AddNewMovieView.swift in Sources */,
+				A18800F0292EDF6300469616 /* ChangableAttributeView.swift in Sources */,
+				A1FC5E3D2934206500AD23F5 /* CoreDataManager.swift in Sources */,
+				A18800F6292FAF1500469616 /* ChangeStringValueView.swift in Sources */,
+				A18800E8292EBDFE00469616 /* AddNewMovieViewModel.swift in Sources */,
+				A19103BB292C46EE00F57012 /* View+Extension.swift in Sources */,
 				A1910312292AAA5000F57012 /* AppDelegate.swift in Sources */,
+				A1FC5E4029350F9A00AD23F5 /* FontsManager.swift in Sources */,
 				A1910314292AAA5000F57012 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,14 +395,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A1910317292AAA5000F57012 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1910318292AAA5000F57012 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A191031F292AAA5000F57012 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,7 +532,6 @@
 				INFOPLIST_FILE = "Movie Saver/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +559,6 @@
 				INFOPLIST_FILE = "Movie Saver/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -362,6 +596,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A1910351292AB9F600F57012 /* XCRemoteSwiftPackageReference "EasyAutoLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ligr/EasyAutoLayout";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A1910352292AB9F600F57012 /* EasyAutolayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1910351292AB9F600F57012 /* XCRemoteSwiftPackageReference "EasyAutoLayout" */;
+			productName = EasyAutolayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A191031A292AAA5000F57012 /* Movie_Saver.xcdatamodeld */ = {
